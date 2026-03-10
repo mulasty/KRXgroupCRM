@@ -129,7 +129,7 @@ export function LogoNebulaField() {
     const seeds = new Float32Array(MAX_LOGO_COUNT);
     const phases = new Float32Array(MAX_LOGO_COUNT);
     const rotations = new Float32Array(MAX_LOGO_COUNT);
-    const palette = visualEffects.nebula.colors.map((entry) => new Color(entry));
+    const palette = visualEffects.brandField.palette.map((entry) => new Color(entry));
 
     for (let index = 0; index < MAX_LOGO_COUNT; index += 1) {
       const seed = index + 1;
@@ -137,7 +137,7 @@ export function LogoNebulaField() {
       const angle = seededUnit(seed * 2.41) * Math.PI * 2;
       const height = (seededUnit(seed * 3.77) - 0.5) * 14;
       const depth = (seededUnit(seed * 4.51) - 0.5) * visualEffects.nebula.depth * 2;
-      const color = palette[index % palette.length].clone().lerp(new Color("#ffffff"), 0.08);
+      const color = palette[index % palette.length].clone().lerp(new Color("#ffffff"), 0.05);
 
       offsets[index * 3] = Math.cos(angle) * radius;
       offsets[index * 3 + 1] = height;
@@ -147,7 +147,9 @@ export function LogoNebulaField() {
       colors[index * 3 + 1] = color.g;
       colors[index * 3 + 2] = color.b;
 
-      scales[index] = 0.42 + seededUnit(seed * 5.19) * 1.18;
+      scales[index] =
+        visualEffects.brandField.scaleMin +
+        seededUnit(seed * 5.19) * (visualEffects.brandField.scaleMax - visualEffects.brandField.scaleMin);
       seeds[index] = seededUnit(seed * 5.73);
       phases[index] = seededUnit(seed * 6.31) * Math.PI * 2;
       rotations[index] = (seededUnit(seed * 7.07) - 0.5) * Math.PI;
