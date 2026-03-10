@@ -25,6 +25,7 @@ type QualityState = {
   qualityTier: DeviceTier;
   lowFpsStreak: number;
   highFpsStreak: number;
+  cooldownTicks: number;
 };
 
 const TIER_ORDER: DeviceTier[] = ["low", "medium", "high"];
@@ -50,6 +51,7 @@ export function syncQualityStateDevice(state: QualityState, deviceTier: DeviceTi
     qualityTier: clampTierToDevice(state.qualityTier, deviceTier),
     lowFpsStreak: state.lowFpsStreak,
     highFpsStreak: state.highFpsStreak,
+    cooldownTicks: state.cooldownTicks,
   };
 }
 
@@ -59,6 +61,7 @@ export function createInitialQualityState(deviceTier: DeviceTier): QualityState 
     qualityTier: deviceTier,
     lowFpsStreak: 0,
     highFpsStreak: 0,
+    cooldownTicks: 0,
   };
 }
 
@@ -73,6 +76,7 @@ export function updateQualityState(state: QualityState, averageFps: number): Qua
   let lowFpsStreak = state.lowFpsStreak;
   let highFpsStreak = state.highFpsStreak;
   let qualityTier = state.qualityTier;
+  let cooldownTicks = Math.max(0, state.cooldownTicks - 1);
 
   if (averageFps < 50) {
     lowFpsStreak += 1;
@@ -85,18 +89,23 @@ export function updateQualityState(state: QualityState, averageFps: number): Qua
     highFpsStreak = 0;
   }
 
-  if (averageFps < 44 && qualityTier !== "low") {
-    qualityTier = downgradeTier(qualityTier);
-    lowFpsStreak = 0;
-    highFpsStreak = 0;
-  } else if (lowFpsStreak >= 2 && qualityTier !== "low") {
-    qualityTier = downgradeTier(qualityTier);
-    lowFpsStreak = 0;
-    highFpsStreak = 0;
-  } else if (highFpsStreak >= 3 && qualityTier !== state.deviceTier) {
-    qualityTier = upgradeTier(qualityTier, state.deviceTier);
-    lowFpsStreak = 0;
-    highFpsStreak = 0;
+  if (cooldownTicks === 0) {
+    if (averageFps < 42 && qualityTier !== "low") {
+      qualityTier = downgradeTier(qualityTier);
+      lowFpsStreak = 0;
+      highFpsStreak = 0;
+      cooldownTicks = 6;
+    } else if (lowFpsStreak >= 3 && qualityTier !== "low") {
+      qualityTier = downgradeTier(qualityTier);
+      lowFpsStreak = 0;
+      highFpsStreak = 0;
+      cooldownTicks = 6;
+    } else if (highFpsStreak >= 6 && qualityTier !== state.deviceTier) {
+      qualityTier = upgradeTier(qualityTier, state.deviceTier);
+      lowFpsStreak = 0;
+      highFpsStreak = 0;
+      cooldownTicks = 6;
+    }
   }
 
   return {
@@ -104,6 +113,7 @@ export function updateQualityState(state: QualityState, averageFps: number): Qua
     qualityTier: clampTierToDevice(qualityTier, state.deviceTier),
     lowFpsStreak,
     highFpsStreak,
+    cooldownTicks,
   };
 }
 
