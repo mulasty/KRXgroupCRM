@@ -22,7 +22,6 @@ import { usePortfolioEngine } from "@/systems/PortfolioEngine";
 import { usePerformanceEngine } from "@/systems/performance/PerformanceEngine";
 import { CameraFlight } from "@/three/universe/CameraFlight";
 import { ConstellationLinks } from "@/three/universe/ConstellationLinks";
-import { GalaxyParticles } from "@/three/universe/GalaxyParticles";
 import { type GalaxyLayout, type GalaxyNode } from "@/three/universe/GalaxyGenerator";
 import { ProjectNode } from "@/three/universe/ProjectNode";
 
@@ -278,7 +277,6 @@ export function DesignUniverse() {
 
       <Environment preset="night" blur={0.92} />
       <NoiseBackground />
-      <GalaxyParticles />
       <NebulaField />
       <CinematicBeams />
       <ClusterBeacons layout={layout} />
