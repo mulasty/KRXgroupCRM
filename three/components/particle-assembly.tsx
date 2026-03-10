@@ -12,12 +12,23 @@ import {
   MathUtils,
   MeshBasicMaterial,
   SRGBColorSpace,
+  ShaderMaterial,
   Texture,
 } from "three";
 
-import { AssemblyParticlesMaterial } from "@/shaders/assembly-particles";
+import "@/shaders/assembly-particles";
 
 gsap.registerPlugin(ScrollTrigger);
+
+type AssemblyParticlesMaterialInstance = ShaderMaterial & {
+  uniforms: {
+    uTime: { value: number };
+    uProgress: { value: number };
+    uPointSize: { value: number };
+    uMap: { value: Texture | null };
+    uTint: { value: Color };
+  };
+};
 
 function seededUnit(seed: number) {
   const value = Math.sin(seed * 12.9898 + 78.233) * 43758.5453123;
@@ -39,7 +50,7 @@ export function ParticleAssembly({
   height,
   slug,
 }: ParticleAssemblyProps) {
-  const pointsMaterialRef = useRef<InstanceType<typeof AssemblyParticlesMaterial> | null>(null);
+  const pointsMaterialRef = useRef<AssemblyParticlesMaterialInstance | null>(null);
   const planeMaterialRef = useRef<MeshBasicMaterial>(null);
   const progressRef = useRef({ value: 0.08 });
   const texture = useTexture(textureUrl) as Texture;

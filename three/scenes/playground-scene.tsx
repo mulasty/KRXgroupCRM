@@ -3,12 +3,19 @@
 import { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Environment, Sparkles } from "@react-three/drei";
-import { Group, MathUtils } from "three";
+import { Group, MathUtils, ShaderMaterial, Vector2 } from "three";
 
-import { ReactiveSurfaceMaterial } from "@/shaders/reactive-surface";
+import "@/shaders/reactive-surface";
+
+type ReactiveSurfaceMaterialInstance = ShaderMaterial & {
+  uniforms: {
+    uTime: { value: number };
+    uPointer: { value: Vector2 };
+  };
+};
 
 export function PlaygroundScene() {
-  const materialRef = useRef<InstanceType<typeof ReactiveSurfaceMaterial> | null>(null);
+  const materialRef = useRef<ReactiveSurfaceMaterialInstance | null>(null);
   const knot = useRef<Group>(null);
 
   useFrame((state, delta) => {

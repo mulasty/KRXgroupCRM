@@ -12,18 +12,29 @@ import {
   Float32BufferAttribute,
   Group,
   PointLight,
+  ShaderMaterial,
   Vector3,
 } from "three";
 import { useRouter } from "next/navigation";
 
+import "@/shaders/cosmic-noise";
 import { designSystem, visualEffects } from "@/lib/site-data";
-import { CosmicNoiseMaterial } from "@/shaders/cosmic-noise";
 import { usePortfolioEngine } from "@/systems/PortfolioEngine";
 import { CameraFlight } from "@/three/universe/CameraFlight";
 import { ConstellationLinks } from "@/three/universe/ConstellationLinks";
 import { GalaxyParticles } from "@/three/universe/GalaxyParticles";
 import { type GalaxyLayout, type GalaxyNode } from "@/three/universe/GalaxyGenerator";
 import { ProjectNode } from "@/three/universe/ProjectNode";
+
+type CosmicNoiseMaterialInstance = ShaderMaterial & {
+  uniforms: {
+    uTime: { value: number };
+    uOpacity: { value: number };
+    uColorA: { value: Color };
+    uColorB: { value: Color };
+    uColorC: { value: Color };
+  };
+};
 
 function seededUnit(seed: number) {
   const value = Math.sin(seed * 12.9898 + 78.233) * 43758.5453123;
@@ -88,7 +99,7 @@ function NebulaField() {
 }
 
 function NoiseBackground() {
-  const materialRef = useRef<InstanceType<typeof CosmicNoiseMaterial> | null>(null);
+  const materialRef = useRef<CosmicNoiseMaterialInstance | null>(null);
 
   useFrame((state) => {
     const material = materialRef.current;
