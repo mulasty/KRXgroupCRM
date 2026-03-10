@@ -1,275 +1,205 @@
-[
-  {
-    "slug": "krx-resonance",
-    "index": "01",
-    "title": "KRX Resonance",
-    "client": "KRX Studio",
-    "year": "2026",
-    "cluster": "branding",
-    "category": "Brand System / Spatial Motion",
-    "excerpt": "A restrained identity rebuilt as a kinetic signal system with orbiting type, spectral grids, and luminous depth.",
-    "description": "KRX Resonance reframed the studio brand as a modular frequency field. The visual language combined quiet editorial typography with atmospheric motion layers designed for web launches, keynote loops, and social teasers.",
-    "accent": "#8CC8FF",
-    "palette": ["#0A0D12", "#8CC8FF", "#C7E3FF"],
-    "mockup_type": "laptop",
-    "textures": {
-      "mockup": "/textures/krx-resonance.svg",
-      "hero": "/textures/krx-signal.svg",
-      "gallery": [
-        "/textures/krx-signal.svg",
-        "/textures/krx-frames.svg",
-        "/textures/krx-grid.svg"
-      ]
-    },
-    "metrics": ["Identity refresh", "Launch microsite", "Motion toolkit"],
-    "deliverables": ["Packaging system", "Event visuals", "Motion typography"],
-    "process": [
-      {
-        "title": "Signal language",
-        "body": "The logotype was deconstructed into orbital vectors and stacked back into a system that could behave consistently across static and animated formats."
+{
+  "version": "2.0",
+  "studio": "KRX Produce",
+  "defaultLocale": "en",
+  "projects": [
+    {
+      "id": "krx-001",
+      "title": "Identity Systems",
+      "slug": "identity-systems",
+      "featured": true,
+      "status": "published",
+      "year": 2025,
+      "category": "Brand Identity",
+      "cluster": "branding",
+      "tags": ["identity", "branding", "editorial", "poster", "launch"],
+      "mockup_type": "poster",
+      "priority": 1,
+      "summary": "A selected identity realization shaped for editorial rollout, digital launch assets, and spatial brand presence.",
+      "intro": "This project explores how a brand system can stay restrained and premium while scaling across launch visuals, presentation frames, and campaign touchpoints.",
+      "client": {
+        "name": "Selected Client Work",
+        "industry": "Brand Identity",
+        "location": "Europe"
       },
-      {
-        "title": "Depth composition",
-        "body": "Type blocks and data lines were organized in atmospheric layers so even flat applications carried a cinematic sense of distance."
+      "services": [
+        "Brand Identity",
+        "Art Direction",
+        "Launch Assets"
+      ],
+      "deliverables": [
+        "Identity system",
+        "Editorial layouts",
+        "Campaign key visuals",
+        "Launch toolkit"
+      ],
+      "tools": ["Illustrator", "Photoshop", "Figma"],
+      "palette": {
+        "primary": "#0B1017",
+        "secondary": "#F3F6FB",
+        "accent": "#8CC8FF"
       },
-      {
-        "title": "Motion restraint",
-        "body": "Animation timing stayed slow and deliberate, prioritizing a premium cadence over aggressive transitions."
+      "textures": {
+        "cover": "/images/services/identity-systems.jpg",
+        "mockup": "/images/services/identity-systems.jpg",
+        "gallery": [
+          "/images/services/identity-systems.jpg",
+          "/textures/krx-resonance.svg",
+          "/textures/north-grid.svg"
+        ],
+        "thumbnail": "/images/services/identity-systems.jpg"
+      },
+      "scene": {
+        "nodeScale": 1.12,
+        "glow": 0.36,
+        "orbitSpeed": 0.08,
+        "focusDistance": 1.18,
+        "preferredLight": "rim"
+      },
+      "case_study": {
+        "hero_title": "Identity Systems",
+        "hero_subtitle": "Brand Identity",
+        "challenge": "The realization needed to feel minimal and premium while remaining flexible across campaign, editorial, and presentation use cases.",
+        "concept": "The system relies on controlled typography, quiet contrast, and luminous accents that keep the identity elegant rather than loud.",
+        "process": "Layouts, marks, and supporting graphics were refined into a consistent toolkit that could shift between still imagery and launch-driven applications.",
+        "result": "The final direction delivers a composed identity language that reads clearly in print, on screen, and inside immersive case-study storytelling."
+      },
+      "seo": {
+        "metaTitle": "Identity Systems - KRX Produce",
+        "metaDescription": "Selected identity realization focused on brand systems, editorial rollout, and launch assets."
       }
-    ]
-  },
-  {
-    "slug": "mula-atlas",
-    "index": "02",
-    "title": "Mula Atlas",
-    "client": "MulaGroup",
-    "year": "2025",
-    "cluster": "packaging",
-    "category": "Packaging / Campaign Art Direction",
-    "excerpt": "A packaging concept where luminous topographic lines, mineral tones, and translucent materials turn the container into a gallery object.",
-    "description": "Mula Atlas explored packaging as a collectible artifact. The system used layered linework, restrained serif titles, and soft blue reflections to bring a premium ritual feel to product interaction.",
-    "accent": "#B7F5E1",
-    "palette": ["#091114", "#B7F5E1", "#E9DCC6"],
-    "mockup_type": "jar",
-    "textures": {
-      "mockup": "/textures/mula-atlas.svg",
-      "hero": "/textures/mula-lines.svg",
-      "gallery": [
-        "/textures/mula-lines.svg",
-        "/textures/mula-sheet.svg",
-        "/textures/mula-details.svg"
-      ]
     },
-    "metrics": ["Packaging direction", "Retail rollout", "Social campaign"],
-    "deliverables": ["Label family", "Art direction deck", "Launch assets"],
-    "process": [
-      {
-        "title": "Material first",
-        "body": "The design language began with reflections, thickness, and translucency before typography was introduced."
+    {
+      "id": "krx-002",
+      "title": "Packaging Direction",
+      "slug": "packaging-direction",
+      "featured": true,
+      "status": "published",
+      "year": 2025,
+      "category": "Packaging Design",
+      "cluster": "packaging",
+      "tags": ["packaging", "jar", "retail", "label", "product"],
+      "mockup_type": "jar",
+      "priority": 2,
+      "summary": "A packaging realization built around tactile surfaces, premium material cues, and a launch-ready label system.",
+      "intro": "The project focuses on turning packaging into a visual object with weight, rhythm, and strong shelf presence across physical and digital presentation.",
+      "client": {
+        "name": "Selected Product Launch",
+        "industry": "Packaging",
+        "location": "Europe"
       },
-      {
-        "title": "Atlas graphics",
-        "body": "Contour lines were drawn as a generative field and manually curated to feel elegant rather than purely technical."
+      "services": [
+        "Packaging Design",
+        "Label Systems",
+        "Retail Visuals"
+      ],
+      "deliverables": [
+        "Primary packaging direction",
+        "Label family",
+        "Retail mockups",
+        "Launch presentation"
+      ],
+      "tools": ["Illustrator", "Photoshop", "Blender"],
+      "palette": {
+        "primary": "#0F1315",
+        "secondary": "#F7F0E6",
+        "accent": "#B7F5E1"
       },
-      {
-        "title": "Shelf presence",
-        "body": "The final system was tuned to read from distance without losing the close-up detail that makes premium packaging rewarding."
+      "textures": {
+        "cover": "/images/services/packaging-direction.jpg",
+        "mockup": "/images/services/packaging-direction.jpg",
+        "gallery": [
+          "/images/services/packaging-direction.jpg",
+          "/textures/mula-atlas.svg",
+          "/textures/mula-details.svg"
+        ],
+        "thumbnail": "/images/services/packaging-direction.jpg"
+      },
+      "scene": {
+        "nodeScale": 1.18,
+        "glow": 0.42,
+        "orbitSpeed": 0.09,
+        "focusDistance": 1.24,
+        "preferredLight": "focus"
+      },
+      "case_study": {
+        "hero_title": "Packaging Direction",
+        "hero_subtitle": "Packaging / Retail",
+        "challenge": "The packaging needed to communicate quality instantly while still rewarding close inspection with detail and material character.",
+        "concept": "The direction combines clean structure with soft reflections and measured graphic pacing so the object feels collectible rather than generic.",
+        "process": "Label hierarchy, container proportion, and presentation framing were tuned together to build one coherent retail story.",
+        "result": "The final realization gives the product a stronger premium presence and translates well into both shelf visuals and portfolio storytelling."
+      },
+      "seo": {
+        "metaTitle": "Packaging Direction - KRX Produce",
+        "metaDescription": "Selected packaging realization focused on label systems, retail visuals, and premium presentation."
       }
-    ]
-  },
-  {
-    "slug": "aether-posters",
-    "index": "03",
-    "title": "Aether Posters",
-    "client": "Self-Initiated",
-    "year": "2026",
-    "cluster": "video",
-    "category": "Motion Posters / Launch Visuals",
-    "excerpt": "An experimental poster collection blending scanline shaders, fractured grids, and responsive typography for cultural programming.",
-    "description": "Aether Posters became a sandbox for building expressive type compositions that feel both computational and tactile. The outputs stretched across prints, motion studies, and immersive launch visuals.",
-    "accent": "#FFB86E",
-    "palette": ["#0F0B08", "#FFB86E", "#F4E8DA"],
-    "mockup_type": "billboard",
-    "textures": {
-      "mockup": "/textures/aether-poster.svg",
-      "hero": "/textures/aether-field.svg",
-      "gallery": [
-        "/textures/aether-field.svg",
-        "/textures/aether-scan.svg",
-        "/textures/aether-type.svg"
-      ]
     },
-    "metrics": ["Poster system", "Creative coding", "Installation graphics"],
-    "deliverables": ["Print set", "Motion loops", "Interactive demo"],
-    "process": [
-      {
-        "title": "Typographic choreography",
-        "body": "Letterforms were treated as bodies in motion, stretched and displaced through wave fields until each poster carried a sense of pressure and release."
+    {
+      "id": "krx-003",
+      "title": "Motion Launches",
+      "slug": "motion-launches",
+      "featured": true,
+      "status": "published",
+      "year": 2025,
+      "category": "Motion Campaign",
+      "cluster": "video",
+      "tags": ["motion", "campaign", "billboard", "launch", "social"],
+      "mockup_type": "billboard",
+      "priority": 3,
+      "summary": "A launch realization built around campaign motion, teaser sequences, and cinematic reveal frames for product and culture.",
+      "intro": "The work turns motion into the primary storytelling tool, with visuals designed to hold impact in both looping clips and static announcement frames.",
+      "client": {
+        "name": "Selected Campaign Launch",
+        "industry": "Motion Design",
+        "location": "Europe"
       },
-      {
-        "title": "Shader framing",
-        "body": "Subtle scanlines and glow passes kept the visuals digital, but not sterile, adding atmosphere without obscuring the information."
+      "services": [
+        "Campaign Motion",
+        "Teaser Loops",
+        "Social Launch Assets"
+      ],
+      "deliverables": [
+        "Teaser loop system",
+        "Announcement frames",
+        "Social motion edits",
+        "Campaign rollout assets"
+      ],
+      "tools": ["After Effects", "Photoshop", "Illustrator", "Blender"],
+      "palette": {
+        "primary": "#0A0D12",
+        "secondary": "#F5F7FB",
+        "accent": "#FFB86E"
       },
-      {
-        "title": "Series logic",
-        "body": "Each composition was generated from the same ruleset so the collection felt connected even when the outputs varied drastically."
+      "textures": {
+        "cover": "/images/services/motion-launches.jpg",
+        "mockup": "/images/services/motion-launches.jpg",
+        "gallery": [
+          "/images/services/motion-launches.jpg",
+          "/textures/lucid-launch.svg",
+          "/textures/framewear-motion.svg"
+        ],
+        "thumbnail": "/images/services/motion-launches.jpg"
+      },
+      "scene": {
+        "nodeScale": 1.16,
+        "glow": 0.4,
+        "orbitSpeed": 0.1,
+        "focusDistance": 1.22,
+        "preferredLight": "rim"
+      },
+      "case_study": {
+        "hero_title": "Motion Launches",
+        "hero_subtitle": "Motion / Campaign",
+        "challenge": "The campaign needed a visual language that could create anticipation quickly without feeling disposable or purely trend-driven.",
+        "concept": "The system uses cinematic contrast, bold framing, and timed motion reveals to make launch content feel authored and premium.",
+        "process": "Static frames and animated sequences were developed together so the project would stay coherent across social, presentation, and launch surfaces.",
+        "result": "The final output creates a stronger sense of momentum and gives the launch a more distinctive narrative rhythm."
+      },
+      "seo": {
+        "metaTitle": "Motion Launches - KRX Produce",
+        "metaDescription": "Selected motion launch realization focused on teaser loops, campaign frames, and social rollout assets."
       }
-    ]
-  },
-  {
-    "slug": "north-core",
-    "index": "04",
-    "title": "North Core",
-    "client": "North Core",
-    "year": "2025",
-    "cluster": "branding",
-    "category": "Identity / Packaging Launch",
-    "excerpt": "A bold monogram system extended across rigid packaging, dimensional signage, and restrained motion cues.",
-    "description": "North Core translated a minimal identity into a compact launch system with high contrast geometry, beveled packaging, and graphic pacing designed for premium retail reveals.",
-    "accent": "#B3C7FF",
-    "palette": ["#091018", "#B3C7FF", "#E7EDF9"],
-    "mockup_type": "box",
-    "textures": {
-      "mockup": "/textures/north-core.svg",
-      "hero": "/textures/north-grid.svg",
-      "gallery": [
-        "/textures/north-grid.svg",
-        "/textures/north-core.svg",
-        "/textures/krx-grid.svg"
-      ]
-    },
-    "metrics": ["Identity launch", "Rigid box system", "Retail art direction"],
-    "deliverables": ["Brand mark", "Packaging mockups", "Launch narrative"],
-    "process": [
-      {
-        "title": "Monolithic geometry",
-        "body": "The identity leaned on beveled forms and condensed wordmarks so the work could feel architectural across print, motion, and packaging."
-      },
-      {
-        "title": "Launch container",
-        "body": "Rigid box graphics were tuned to reveal themselves slowly through light, shadow, and edge contrast rather than loud ornament."
-      },
-      {
-        "title": "System expansion",
-        "body": "The final toolkit extended from hero packaging into signage, digital key visuals, and motion lockups."
-      }
-    ]
-  },
-  {
-    "slug": "framewear-drop",
-    "index": "05",
-    "title": "Framewear Drop",
-    "client": "Framewear",
-    "year": "2026",
-    "cluster": "social media",
-    "category": "Apparel Campaign / Social Motion",
-    "excerpt": "A capsule release staged through kinetic apparel graphics, launch teasers, and tactile social loops.",
-    "description": "Framewear Drop fused fashion graphics with social storytelling. The release system balanced oversized typography, garment visuals, and motion fragments designed for fast-moving launch sequences.",
-    "accent": "#F4D5B7",
-    "palette": ["#120E0C", "#F4D5B7", "#FFF5ED"],
-    "mockup_type": "tshirt",
-    "textures": {
-      "mockup": "/textures/framewear-drop.svg",
-      "hero": "/textures/framewear-motion.svg",
-      "gallery": [
-        "/textures/framewear-motion.svg",
-        "/textures/framewear-drop.svg",
-        "/textures/aether-type.svg"
-      ]
-    },
-    "metrics": ["Drop campaign", "Merch visuals", "Social launch kit"],
-    "deliverables": ["Garment graphics", "Reels toolkit", "Launch countdown"],
-    "process": [
-      {
-        "title": "Graphic silhouette",
-        "body": "The apparel itself became the hero object, with layouts shaped to read clearly on fabric, in motion, and inside short-form social crops."
-      },
-      {
-        "title": "Campaign rhythm",
-        "body": "Posts, motion teasers, and lookbook fragments shared one timing system so the drop felt unified across touchpoints."
-      },
-      {
-        "title": "Digital texture",
-        "body": "Soft grain and overprint-inspired tones kept the campaign tactile even when viewed on high-brightness screens."
-      }
-    ]
-  },
-  {
-    "slug": "lucid-launch",
-    "index": "06",
-    "title": "Lucid Launch",
-    "client": "Lucid Motion",
-    "year": "2026",
-    "cluster": "video",
-    "category": "Motion Identity / Broadcast Frames",
-    "excerpt": "A motion-led identity system stretched across teaser frames, event loops, and modular announcement graphics.",
-    "description": "Lucid Launch was conceived as a living broadcast package. Gradient light, modular framing, and paced typography allowed the system to shift from posters to trailers without losing coherence.",
-    "accent": "#A5D9FF",
-    "palette": ["#071019", "#A5D9FF", "#EEF7FF"],
-    "mockup_type": "poster",
-    "textures": {
-      "mockup": "/textures/lucid-launch.svg",
-      "hero": "/textures/lucid-spectrum.svg",
-      "gallery": [
-        "/textures/lucid-spectrum.svg",
-        "/textures/lucid-launch.svg",
-        "/textures/krx-signal.svg"
-      ]
-    },
-    "metrics": ["Broadcast package", "Teaser system", "Motion direction"],
-    "deliverables": ["Trailer frames", "Poster series", "Event loops"],
-    "process": [
-      {
-        "title": "Moving frames",
-        "body": "Layout blocks were designed to hold motion first, then tuned so still frames could inherit the same sense of energy and suspension."
-      },
-      {
-        "title": "Spectral accents",
-        "body": "The identity used narrow bands of color and light as timing markers across intros, posters, and environmental displays."
-      },
-      {
-        "title": "Cross-format continuity",
-        "body": "Every asset was built from the same modular framing rules to keep the campaign coherent at multiple scales."
-      }
-    ]
-  },
-  {
-    "slug": "pulse-social",
-    "index": "07",
-    "title": "Pulse Social",
-    "client": "Pulse Labs",
-    "year": "2025",
-    "cluster": "social media",
-    "category": "Social Media System / Mobile Launch",
-    "excerpt": "A mobile-first campaign language combining bold type, modular cards, and luminous feeds for product storytelling.",
-    "description": "Pulse Social turned a content-heavy launch into a precise mobile system. Motion cards, stacked layouts, and reactive color fields helped information move with clarity across social channels.",
-    "accent": "#FFD6A3",
-    "palette": ["#110D09", "#FFD6A3", "#FFF4E7"],
-    "mockup_type": "phone",
-    "textures": {
-      "mockup": "/textures/pulse-social.svg",
-      "hero": "/textures/pulse-feed.svg",
-      "gallery": [
-        "/textures/pulse-feed.svg",
-        "/textures/pulse-social.svg",
-        "/textures/mula-sheet.svg"
-      ]
-    },
-    "metrics": ["Social rollout", "Mobile-first art direction", "Content system"],
-    "deliverables": ["Feed templates", "Story animations", "Launch toolkit"],
-    "process": [
-      {
-        "title": "Mobile hierarchy",
-        "body": "The layout system was built around thumb-friendly rhythm, vertical storytelling, and instant visual hierarchy."
-      },
-      {
-        "title": "Feed logic",
-        "body": "Cards, crops, and color fields were designed to interlock when viewed as a sequence rather than isolated posts."
-      },
-      {
-        "title": "Momentum",
-        "body": "Motion timing emphasized cadence and anticipation so the launch felt authored instead of templated."
-      }
-    ]
-  }
-]
+    }
+  ]
+}

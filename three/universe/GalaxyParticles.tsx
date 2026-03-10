@@ -16,7 +16,7 @@ import {
 import { useExperienceDirector } from "@/systems/ExperienceDirector";
 import { usePerformanceEngine } from "@/systems/performance/PerformanceEngine";
 
-const MAX_PARTICLE_COUNT = 15000;
+const MAX_PARTICLE_COUNT = 30000;
 const GALAXY_RADIUS = 72;
 const GALAXY_ARMS = 4;
 
@@ -180,7 +180,7 @@ export function GalaxyParticles() {
 
     const pointsMaterial = points.material as ShaderMaterial;
     const clampedParticleCount = Math.min(
-      Math.max(3000, Math.floor(performance.quality.particleCount * 0.7)),
+      performance.quality.particleCount,
       MAX_PARTICLE_COUNT,
     );
 

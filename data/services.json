@@ -1,27 +1,24 @@
 {
   "eyebrow": "Services",
-  "title": "Selected areas of practice shaped for launch-ready brand worlds.",
-  "description": "The studio work spans identity direction, packaging systems, and motion-led campaign visuals. Each stream is treated as one connected visual language rather than isolated deliverables.",
+  "title": "Core creative directions built for brand systems, launches, and digital presentation.",
+  "description": "The services section should describe the offer, not duplicate project work. Each stream below supports the portfolio projects rather than replacing them.",
   "items": [
     {
-      "slug": "identity-systems",
-      "title": "Identity Systems",
-      "summary": "Brand identities shaped for editorial, digital, and spatial rollout.",
-      "image": "/images/services/identity-systems.jpg",
-      "deliverables": ["Brand worlds", "Launch assets", "Art direction"]
+      "slug": "brand-identity",
+      "title": "Brand Identity",
+      "summary": "Naming support, visual systems, typography, and rollout logic for distinctive brand presence.",
+      "deliverables": ["Identity systems", "Art direction", "Launch assets"]
     },
     {
-      "slug": "packaging-direction",
-      "title": "Packaging Direction",
-      "summary": "Premium packaging concepts with tactile material thinking and launch-ready visuals.",
-      "image": "/images/services/packaging-direction.jpg",
+      "slug": "packaging-systems",
+      "title": "Packaging Systems",
+      "summary": "Container graphics, label structures, and premium presentation materials for physical products.",
       "deliverables": ["Label systems", "Packaging mockups", "Retail visuals"]
     },
     {
-      "slug": "motion-launches",
-      "title": "Motion Launches",
-      "summary": "Campaign visuals, social motion, and cinematic reveal systems for product and culture.",
-      "image": "/images/services/motion-launches.jpg",
+      "slug": "motion-campaigns",
+      "title": "Motion Campaigns",
+      "summary": "Teaser visuals, social motion, and cinematic campaign frames built for launches and announcements.",
       "deliverables": ["Teaser loops", "Social motion", "Campaign frames"]
     }
   ]

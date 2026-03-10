@@ -126,7 +126,7 @@ export type Services = {
     slug: string;
     title: string;
     summary: string;
-    image: string;
+    image?: string;
     deliverables: string[];
   }>;
 };
@@ -269,6 +269,218 @@ export type UIComponents = {
     };
   };
 };
+
+const fallbackExperienceFlow: ExperienceFlow = {
+  scrollTrigger: {
+    trigger: "#portfolio-scroll",
+    start: "top top",
+    end: "bottom bottom",
+    scrub: 1,
+  },
+  selectionPriority: {
+    enabled: true,
+    selectionStage: "focus",
+    caseStudyThreshold: 0.8,
+  },
+  stages: [
+    {
+      key: "intro",
+      range: { start: 0, end: 0.2 },
+      camera: {
+        dolly: 1.1,
+        lift: 0.3,
+        fov: 35.5,
+        targetDistance: 13.5,
+      },
+      lighting: {
+        ambient: 0.08,
+        wash: 4,
+        focus: 0,
+      },
+      postfx: {
+        bloomBoost: 0.9,
+        grainOpacity: 0.022,
+        vignetteDarkness: 0.72,
+        aberrationScale: 0.9,
+        bokehScale: 1.6,
+        targetDistance: 13.5,
+      },
+      particles: {
+        activity: 0.72,
+        opacity: 0.2,
+        size: 0.86,
+        drift: 0.82,
+        spin: 0.76,
+      },
+    },
+    {
+      key: "explore",
+      range: { start: 0.2, end: 0.6 },
+      camera: {
+        dolly: 0.2,
+        lift: 0.08,
+        fov: 36.4,
+        targetDistance: 11.5,
+      },
+      lighting: {
+        ambient: 0.12,
+        wash: 8.5,
+        focus: 1.8,
+      },
+      postfx: {
+        bloomBoost: 1.1,
+        grainOpacity: 0.028,
+        vignetteDarkness: 0.76,
+        aberrationScale: 1,
+        bokehScale: 2,
+        targetDistance: 11.5,
+      },
+      particles: {
+        activity: 1.14,
+        opacity: 0.38,
+        size: 1.08,
+        drift: 1.18,
+        spin: 1.12,
+      },
+    },
+    {
+      key: "focus",
+      range: { start: 0.6, end: 0.8 },
+      camera: {
+        dolly: -1.15,
+        lift: 0.26,
+        fov: 31.8,
+        targetDistance: 9.4,
+        selected: {
+          dolly: -1.55,
+          fov: 30.5,
+          targetDistance: 8.2,
+        },
+      },
+      lighting: {
+        ambient: 0.1,
+        wash: 6.5,
+        focus: 8,
+        selected: {
+          focus: 15,
+        },
+      },
+      postfx: {
+        bloomBoost: 1.18,
+        grainOpacity: 0.024,
+        vignetteDarkness: 0.82,
+        aberrationScale: 0.88,
+        bokehScale: 2.2,
+        targetDistance: 9.4,
+        selected: {
+          bokehScale: 2.5,
+          targetDistance: 8.2,
+        },
+      },
+      particles: {
+        activity: 0.96,
+        opacity: 0.3,
+        size: 0.98,
+        drift: 0.96,
+        spin: 0.92,
+      },
+    },
+    {
+      key: "case-study",
+      range: { start: 0.8, end: 1 },
+      camera: {
+        dolly: -2.1,
+        lift: 0.44,
+        fov: 28.6,
+        targetDistance: 6.6,
+      },
+      lighting: {
+        ambient: 0.06,
+        wash: 4.8,
+        focus: 9,
+      },
+      postfx: {
+        bloomBoost: 0.96,
+        grainOpacity: 0.022,
+        vignetteDarkness: 0.88,
+        aberrationScale: 0.72,
+        bokehScale: 2.35,
+        targetDistance: 6.6,
+      },
+      particles: {
+        activity: 0.68,
+        opacity: 0.16,
+        size: 0.82,
+        drift: 0.7,
+        spin: 0.74,
+      },
+    },
+  ],
+};
+
+const fallbackUiComponents: UIComponents = {
+  home: {
+    hero: {
+      eyebrow: "Immersive portfolio",
+      title: ["Visual identities", "staged as", "digital matter."],
+      description:
+        "The work unfolds across WebGL environments, editorial layouts, and mockups that materialize through particle-based assembly.",
+    },
+    profile: {
+      eyebrow: "Profile",
+      body:
+        "The site behaves like an installation: slow camera travel, cinematic section changes, and premium material studies rather than flat project tiles.",
+      primaryCta: {
+        label: "Enter projects",
+        href: "#featured",
+      },
+      secondaryCta: {
+        label: "Explore playground",
+        href: "/playground",
+      },
+    },
+    featured: {
+      description:
+        "Scroll shifts the camera through a three-dimensional sequence of mockups. Each project lives at a different depth plane, while the matching artwork assembles from particles onto the object surface.",
+      caseStudyCtaLabel: "Open case study",
+    },
+    about: {
+      eyebrow: "About",
+      title: "Design systems with editorial calm and a universe-scale point of view.",
+      statements: [
+        "Shader-led transitions replace hard cuts with atmospheric reveals.",
+        "Mockups are treated like lit objects in a gallery, not screenshots in cards.",
+        "Typography stays large, patient, and sharply composed across every section.",
+        "The Playground expands the portfolio into a laboratory for motion and code.",
+      ],
+      finalStage: {
+        eyebrow: "Final stage",
+        title: "Scroll exits the galaxy into the Playground and studio context.",
+        cta: {
+          label: "Open playground",
+          href: "/playground",
+        },
+      },
+    },
+  },
+};
+
+function hasRuntimeExperienceFlow(value: unknown): value is ExperienceFlow {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const candidate = value as Record<string, unknown>;
+  return !!candidate.scrollTrigger && !!candidate.selectionPriority && Array.isArray(candidate.stages);
+}
+
+function hasRuntimeUiComponents(value: unknown): value is UIComponents {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  return "home" in (value as Record<string, unknown>);
+}
 
 type LegacyPortfolioProjectsDataset = PortfolioProjectDatasetRecord[];
 
@@ -571,11 +783,15 @@ export const assetsManifest = assetsManifestRaw as AssetsManifest;
 export const designSystem = designSystemRaw as DesignSystem;
 export const siteNavigation = siteNavigationDataset;
 export const content = siteContent;
-export const experienceFlow = experienceFlowRaw as ExperienceFlow;
-export const performanceProfiles = performanceProfilesRaw as PerformanceProfiles;
+export const experienceFlow = hasRuntimeExperienceFlow(experienceFlowRaw)
+  ? experienceFlowRaw
+  : fallbackExperienceFlow;
+export const performanceProfiles = performanceProfilesRaw as unknown as PerformanceProfiles;
 export const projectClusters = projectClustersRaw as ProjectClusters;
 export const services = servicesRaw as Services;
-export const uiComponents = uiComponentsRaw as UIComponents;
+export const uiComponents = hasRuntimeUiComponents(uiComponentsRaw)
+  ? uiComponentsRaw
+  : fallbackUiComponents;
 export const heroSceneBlueprint = {
   ...(heroSceneBlueprintRaw as HeroSceneBlueprint),
   clusterOrder: projectClusters.order,

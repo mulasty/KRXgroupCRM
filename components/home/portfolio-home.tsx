@@ -174,16 +174,26 @@ export function PortfolioHome() {
               transition={{ duration: 0.8, delay: index * 0.1 }}
               className="glass-card overflow-hidden rounded-[30px] p-3"
             >
-              <div className="relative aspect-square overflow-hidden rounded-[24px] border border-white/10">
-                <Image
-                  src={service.image}
-                  alt={service.title}
-                  fill
-                  sizes="(max-width: 1024px) 100vw, 33vw"
-                  className="object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
-              </div>
+              {service.image ? (
+                <div className="relative aspect-square overflow-hidden rounded-[24px] border border-white/10">
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
+                </div>
+              ) : (
+                <div className="relative aspect-square overflow-hidden rounded-[24px] border border-white/10 bg-[radial-gradient(circle_at_top_left,rgba(140,200,255,0.18),transparent_34%),radial-gradient(circle_at_bottom_right,rgba(255,184,110,0.16),transparent_30%),linear-gradient(160deg,rgba(255,255,255,0.08),rgba(255,255,255,0.02)),#0a0f16]">
+                  <div className="absolute inset-0 bg-[linear-gradient(135deg,transparent_0%,rgba(255,255,255,0.04)_45%,transparent_100%)]" />
+                  <div className="absolute inset-x-5 bottom-5 flex items-end justify-between gap-4 text-[10px] uppercase tracking-[0.3em] text-white/[0.46]">
+                    <span>Service</span>
+                    <span>0{index + 1}</span>
+                  </div>
+                </div>
+              )}
 
               <div className="p-5">
                 <p className="text-[10px] uppercase tracking-[0.34em] text-white/[0.35]">

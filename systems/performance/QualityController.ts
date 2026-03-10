@@ -30,6 +30,125 @@ type QualityState = {
 
 const TIER_ORDER: DeviceTier[] = ["low", "medium", "high"];
 
+const FALLBACK_PROFILES = {
+  portfolio: {
+    initialTierCap: "high" as const,
+    tiers: {
+      high: {
+        canvasDpr: 1.85,
+        particleCount: 30000,
+        shaderIntensity: 1,
+        postfx: {
+          bloomEnabled: true,
+          bloomScale: 1,
+          dofEnabled: true,
+          grainScale: 1,
+          aberrationScale: 1,
+          multisampling: 4,
+        },
+      },
+      medium: {
+        canvasDpr: 1.4,
+        particleCount: 15000,
+        shaderIntensity: 0.84,
+        postfx: {
+          bloomEnabled: true,
+          bloomScale: 0.72,
+          dofEnabled: false,
+          grainScale: 0.8,
+          aberrationScale: 0.78,
+          multisampling: 0,
+        },
+      },
+      low: {
+        canvasDpr: 1,
+        particleCount: 8000,
+        shaderIntensity: 0.68,
+        postfx: {
+          bloomEnabled: false,
+          bloomScale: 0,
+          dofEnabled: false,
+          grainScale: 0.6,
+          aberrationScale: 0.55,
+          multisampling: 0,
+        },
+      },
+    },
+  },
+  playground: {
+    initialTierCap: "high" as const,
+    tiers: {
+      high: {
+        canvasDpr: 1.7,
+        particleCount: 30000,
+        shaderIntensity: 1,
+        postfx: {
+          bloomEnabled: true,
+          bloomScale: 1,
+          dofEnabled: true,
+          grainScale: 1,
+          aberrationScale: 1,
+          multisampling: 4,
+        },
+      },
+      medium: {
+        canvasDpr: 1.3,
+        particleCount: 15000,
+        shaderIntensity: 0.84,
+        postfx: {
+          bloomEnabled: true,
+          bloomScale: 0.72,
+          dofEnabled: false,
+          grainScale: 0.8,
+          aberrationScale: 0.78,
+          multisampling: 0,
+        },
+      },
+      low: {
+        canvasDpr: 1,
+        particleCount: 8000,
+        shaderIntensity: 0.68,
+        postfx: {
+          bloomEnabled: false,
+          bloomScale: 0,
+          dofEnabled: false,
+          grainScale: 0.6,
+          aberrationScale: 0.55,
+          multisampling: 0,
+        },
+      },
+    },
+  },
+};
+
+function hasRuntimePerformanceProfiles(
+  value: unknown,
+): value is {
+  portfolio: { initialTierCap: DeviceTier; tiers: Record<DeviceTier, QualityProfile> };
+  playground: { initialTierCap: DeviceTier; tiers: Record<DeviceTier, QualityProfile> };
+} {
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  const candidate = value as Record<string, unknown>;
+
+  return ["portfolio", "playground"].every((preset) => {
+    const presetValue = candidate[preset];
+
+    if (!presetValue || typeof presetValue !== "object") {
+      return false;
+    }
+
+    const presetRecord = presetValue as Record<string, unknown>;
+    return typeof presetRecord.initialTierCap === "string" && !!presetRecord.tiers;
+  });
+}
+
+function getRuntimeProfiles() {
+  return hasRuntimePerformanceProfiles(performanceProfiles) ? performanceProfiles : FALLBACK_PROFILES;
+}
+
 function clampTierToDevice(tier: DeviceTier, deviceTier: DeviceTier) {
   return TIER_ORDER[Math.min(TIER_ORDER.indexOf(tier), TIER_ORDER.indexOf(deviceTier))];
 }
@@ -69,7 +188,7 @@ export function getInitialQualityTier(
   preset: PerformancePreset,
   deviceTier: DeviceTier,
 ): DeviceTier {
-  return clampTierToDevice(performanceProfiles[preset].initialTierCap, deviceTier);
+  return clampTierToDevice(getRuntimeProfiles()[preset].initialTierCap, deviceTier);
 }
 
 export function updateQualityState(state: QualityState, averageFps: number): QualityState {
@@ -122,7 +241,7 @@ export function getQualityProfile(
   preset: PerformancePreset,
 ): QualityProfile {
   const resolvedTier = tier === "high" || tier === "medium" ? tier : "low";
-  const profile = performanceProfiles[preset].tiers[resolvedTier];
+  const profile = getRuntimeProfiles()[preset].tiers[resolvedTier];
 
   return {
     tier: resolvedTier,
