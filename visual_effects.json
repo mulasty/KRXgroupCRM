@@ -8,6 +8,13 @@
     "pointSize": 0.14,
     "colors": ["#8CC8FF", "#B7F5E1", "#FFB86E", "#F4E8DA"]
   },
+  "brandField": {
+    "logoTexture": "/images/brand/krxproduce-logo.png",
+    "maxLogos": 4500,
+    "opacity": 0.16,
+    "baseScale": 0.52,
+    "brightnessThreshold": 0.94
+  },
   "noiseBackground": {
     "intensity": 0.14,
     "speed": 0.08,

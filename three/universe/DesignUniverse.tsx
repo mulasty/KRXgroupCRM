@@ -6,10 +6,7 @@ import { Environment, Float } from "@react-three/drei";
 import gsap from "gsap";
 import {
   AdditiveBlending,
-  BufferGeometry,
   Color,
-  Float32BufferAttribute,
-  Group,
   PointLight,
   ShaderMaterial,
   Vector3,
@@ -19,10 +16,10 @@ import { useRouter } from "next/navigation";
 import "@/shaders/cosmic-noise";
 import { designSystem, visualEffects } from "@/lib/site-data";
 import { usePortfolioEngine } from "@/systems/PortfolioEngine";
-import { usePerformanceEngine } from "@/systems/performance/PerformanceEngine";
 import { CameraFlight } from "@/three/universe/CameraFlight";
 import { ConstellationLinks } from "@/three/universe/ConstellationLinks";
 import { type GalaxyLayout, type GalaxyNode } from "@/three/universe/GalaxyGenerator";
+import { LogoNebulaField } from "@/three/universe/LogoNebulaField";
 import { ProjectNode } from "@/three/universe/ProjectNode";
 
 type CosmicNoiseMaterialInstance = ShaderMaterial & {
@@ -34,73 +31,6 @@ type CosmicNoiseMaterialInstance = ShaderMaterial & {
     uColorC: { value: Color };
   };
 };
-
-function seededUnit(seed: number) {
-  const value = Math.sin(seed * 12.9898 + 78.233) * 43758.5453123;
-  return value - Math.floor(value);
-}
-
-function NebulaField() {
-  const performance = usePerformanceEngine();
-  const group = useRef<Group>(null);
-  const geometry = useMemo(() => {
-    const count = Math.min(
-      4500,
-      Math.max(1200, Math.floor(performance.quality.particleCount * 0.3)),
-      visualEffects.nebula.maxParticles,
-    );
-    const positions = new Float32Array(count * 3);
-    const colors = new Float32Array(count * 3);
-    const palette = visualEffects.nebula.colors.map((entry) => new Color(entry));
-
-    for (let index = 0; index < count; index += 1) {
-      const seed = index + 1;
-      const radius = Math.pow(seededUnit(seed * 1.23), 0.55) * visualEffects.nebula.fieldRadius;
-      const angle = seededUnit(seed * 2.41) * Math.PI * 2;
-      const height = (seededUnit(seed * 3.77) - 0.5) * 14;
-      const depth = (seededUnit(seed * 4.51) - 0.5) * visualEffects.nebula.depth * 2;
-
-      positions[index * 3] = Math.cos(angle) * radius;
-      positions[index * 3 + 1] = height;
-      positions[index * 3 + 2] = depth;
-
-      const color = palette[index % palette.length].clone().lerp(new Color("#ffffff"), 0.08);
-      colors[index * 3] = color.r;
-      colors[index * 3 + 1] = color.g;
-      colors[index * 3 + 2] = color.b;
-    }
-
-    const buffer = new BufferGeometry();
-    buffer.setAttribute("position", new Float32BufferAttribute(positions, 3));
-    buffer.setAttribute("color", new Float32BufferAttribute(colors, 3));
-    return buffer;
-  }, [performance.quality.particleCount]);
-
-  useFrame((_, delta) => {
-    if (!group.current) {
-      return;
-    }
-
-    group.current.rotation.y += delta * visualEffects.nebula.rotationSpeed;
-    group.current.rotation.x += delta * visualEffects.nebula.rotationSpeed * 0.12;
-  });
-
-  return (
-    <group ref={group}>
-      <points geometry={geometry}>
-        <pointsMaterial
-          transparent
-          vertexColors
-          size={visualEffects.nebula.pointSize}
-          sizeAttenuation
-          opacity={visualEffects.nebula.opacity * performance.quality.shaderIntensity}
-          depthWrite={false}
-          blending={AdditiveBlending}
-        />
-      </points>
-    </group>
-  );
-}
 
 function NoiseBackground() {
   const materialRef = useRef<CosmicNoiseMaterialInstance | null>(null);
@@ -277,7 +207,7 @@ export function DesignUniverse() {
 
       <Environment preset="night" blur={0.92} />
       <NoiseBackground />
-      <NebulaField />
+      <LogoNebulaField />
       <CinematicBeams />
       <ClusterBeacons layout={layout} />
 
