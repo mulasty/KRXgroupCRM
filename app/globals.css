@@ -75,14 +75,6 @@ canvas {
   touch-action: none;
 }
 
-@media (hover: hover) and (pointer: fine) {
-  body,
-  a,
-  button {
-    cursor: none;
-  }
-}
-
 @layer base {
   h1,
   h2,

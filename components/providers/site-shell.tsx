@@ -1,7 +1,6 @@
 "use client";
 
 import { Header } from "@/components/common/header";
-import { CustomCursor } from "@/components/common/custom-cursor";
 import { InteractionProvider } from "@/components/providers/interaction-provider";
 import { RouteTransition } from "@/components/common/route-transition";
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider";
@@ -29,7 +28,6 @@ export function SiteShell({
         <TransitionNavigationBridge />
         <InteractionProvider>
           <Header />
-          <CustomCursor />
           <SpaceWarp />
           <WarpTransition />
           <RouteTransition>{children}</RouteTransition>

@@ -270,6 +270,282 @@ export type UIComponents = {
   };
 };
 
+type LegacyPortfolioProjectsDataset = PortfolioProjectDatasetRecord[];
+
+type RawPortfolioProjectRecord = {
+  slug: string;
+  title: string;
+  year?: number | string;
+  category?: string;
+  cluster?: string;
+  mockup_type?: string;
+  priority?: number;
+  summary?: string;
+  intro?: string;
+  tags?: string[];
+  services?: string[];
+  deliverables?: string[];
+  client?: {
+    name?: string;
+  } | string;
+  palette?: {
+    primary?: string;
+    secondary?: string;
+    accent?: string;
+  };
+  textures?: {
+    cover?: string;
+    mockup?: string;
+    gallery?: string[];
+    thumbnail?: string;
+  };
+  case_study?: {
+    challenge?: string;
+    concept?: string;
+    process?: string;
+    result?: string;
+  };
+};
+
+type RawPortfolioProjectsDataset = {
+  version?: string;
+  studio?: string;
+  defaultLocale?: string;
+  projects: RawPortfolioProjectRecord[];
+};
+
+const fallbackTextureSets: PortfolioProjectTextures[] = [
+  {
+    mockup: "/textures/krx-resonance.svg",
+    hero: "/textures/krx-grid.svg",
+    gallery: ["/textures/krx-signal.svg", "/textures/krx-frames.svg", "/textures/krx-resonance.svg"],
+  },
+  {
+    mockup: "/textures/mula-atlas.svg",
+    hero: "/textures/mula-lines.svg",
+    gallery: ["/textures/mula-details.svg", "/textures/mula-sheet.svg", "/textures/mula-atlas.svg"],
+  },
+  {
+    mockup: "/textures/aether-poster.svg",
+    hero: "/textures/aether-field.svg",
+    gallery: ["/textures/aether-scan.svg", "/textures/aether-type.svg", "/textures/aether-poster.svg"],
+  },
+  {
+    mockup: "/textures/north-core.svg",
+    hero: "/textures/north-grid.svg",
+    gallery: ["/textures/north-core.svg", "/textures/krx-grid.svg", "/textures/north-grid.svg"],
+  },
+  {
+    mockup: "/textures/framewear-drop.svg",
+    hero: "/textures/framewear-motion.svg",
+    gallery: ["/textures/framewear-drop.svg", "/textures/pulse-feed.svg", "/textures/framewear-motion.svg"],
+  },
+  {
+    mockup: "/textures/lucid-launch.svg",
+    hero: "/textures/lucid-spectrum.svg",
+    gallery: ["/textures/lucid-launch.svg", "/textures/lucid-spectrum.svg", "/textures/krx-frames.svg"],
+  },
+  {
+    mockup: "/textures/pulse-social.svg",
+    hero: "/textures/pulse-feed.svg",
+    gallery: ["/textures/pulse-social.svg", "/textures/pulse-feed.svg", "/textures/framewear-motion.svg"],
+  },
+];
+
+function isLegacyPortfolioProjectRecord(
+  project: PortfolioProjectDatasetRecord | RawPortfolioProjectRecord,
+): project is PortfolioProjectDatasetRecord {
+  return (
+    "index" in project &&
+    Boolean(project.textures) &&
+    typeof (project.textures as PortfolioProjectTextures).hero === "string"
+  );
+}
+
+function normalizeCluster(
+  rawCluster: string | undefined,
+  category: string | undefined,
+  services: string[] = [],
+  tags: string[] = [],
+): ProjectCluster {
+  const haystack = [rawCluster, category, ...services, ...tags].join(" ").toLowerCase();
+
+  if (haystack.includes("social") || haystack.includes("mobile") || haystack.includes("content")) {
+    return "social media";
+  }
+
+  if (
+    haystack.includes("motion") ||
+    haystack.includes("video") ||
+    haystack.includes("broadcast") ||
+    haystack.includes("poster")
+  ) {
+    return "video";
+  }
+
+  if (
+    haystack.includes("pack") ||
+    haystack.includes("label") ||
+    haystack.includes("jar") ||
+    haystack.includes("box")
+  ) {
+    return "packaging";
+  }
+
+  return "branding";
+}
+
+function normalizeMockupType(
+  rawMockupType: string | undefined,
+  category: string | undefined,
+  tags: string[] = [],
+): ProjectModel {
+  const source = [rawMockupType, category, ...tags].join(" ").toLowerCase();
+
+  if (source.includes("billboard")) {
+    return "billboard";
+  }
+
+  if (source.includes("poster")) {
+    return "poster";
+  }
+
+  if (source.includes("phone") || source.includes("mobile") || source.includes("social")) {
+    return "phone";
+  }
+
+  if (source.includes("laptop") || source.includes("screen") || source.includes("website")) {
+    return "laptop";
+  }
+
+  if (source.includes("shirt") || source.includes("tshirt") || source.includes("apparel")) {
+    return "tshirt";
+  }
+
+  if (source.includes("jar")) {
+    return "jar";
+  }
+
+  return "box";
+}
+
+function isUsableTexturePath(path: string | undefined) {
+  return Boolean(path && (path.startsWith("/textures/") || path.startsWith("/images/")));
+}
+
+function resolveTextures(
+  textures: RawPortfolioProjectRecord["textures"] | PortfolioProjectTextures | undefined,
+  fallbackIndex: number,
+): PortfolioProjectTextures {
+  if (textures && "hero" in textures && isUsableTexturePath(textures.hero)) {
+    return textures;
+  }
+
+  const fallback = fallbackTextureSets[fallbackIndex % fallbackTextureSets.length] ?? fallbackTextureSets[0];
+  const mockup =
+    textures && "mockup" in textures && isUsableTexturePath(textures.mockup)
+      ? textures.mockup
+      : fallback.mockup;
+  const hero =
+    textures && "cover" in textures && isUsableTexturePath(textures.cover)
+      ? textures.cover
+      : fallback.hero;
+  const gallery =
+    textures &&
+    Array.isArray(textures.gallery) &&
+    textures.gallery.length > 0 &&
+    textures.gallery.every((entry) => isUsableTexturePath(entry))
+      ? (textures.gallery as string[])
+      : fallback.gallery;
+
+  return {
+    mockup: mockup ?? fallback.mockup,
+    hero: hero ?? fallback.hero,
+    gallery,
+  };
+}
+
+function buildProcess(
+  project: RawPortfolioProjectRecord,
+  fallbackDescription: string,
+): ProcessStep[] {
+  const caseStudy = project.case_study;
+  const steps = [
+    { title: "Challenge", body: caseStudy?.challenge ?? fallbackDescription },
+    { title: "Concept", body: caseStudy?.concept ?? project.summary ?? fallbackDescription },
+    { title: "Process", body: caseStudy?.process ?? project.intro ?? fallbackDescription },
+    { title: "Result", body: caseStudy?.result ?? project.summary ?? fallbackDescription },
+  ].filter((step) => step.body && step.body.trim().length > 0);
+
+  return steps.length > 0
+    ? steps
+    : [
+        {
+          title: "Overview",
+          body: fallbackDescription,
+        },
+      ];
+}
+
+function normalizePortfolioProject(
+  project: PortfolioProjectDatasetRecord | RawPortfolioProjectRecord,
+  index: number,
+): PortfolioProjectRecord {
+  if (isLegacyPortfolioProjectRecord(project)) {
+    return {
+      ...project,
+      mockupType: project.mockup_type,
+      model: project.mockup_type,
+      texture: project.textures.mockup,
+      heroTexture: project.textures.hero,
+      gallery: project.textures.gallery,
+    };
+  }
+
+  const accent = project.palette?.accent ?? "#8cc8ff";
+  const description =
+    project.intro ??
+    project.summary ??
+    project.case_study?.concept ??
+    "A portfolio project presented as part of the immersive design universe.";
+  const cluster = normalizeCluster(project.cluster, project.category, project.services, project.tags);
+  const mockupType = normalizeMockupType(project.mockup_type, project.category, project.tags);
+  const textures = resolveTextures(project.textures, index);
+  const deliverables = project.deliverables?.length
+    ? project.deliverables
+    : project.services?.length
+      ? project.services
+      : ["Identity system", "Art direction", "Launch assets"];
+
+  return {
+    slug: project.slug,
+    index: String(project.priority ?? index + 1).padStart(2, "0"),
+    title: project.title,
+    client: typeof project.client === "string" ? project.client : project.client?.name ?? "Independent project",
+    year: String(project.year ?? new Date().getFullYear()),
+    cluster,
+    category: project.category ?? "Brand Identity",
+    excerpt: project.summary ?? description,
+    description,
+    accent,
+    palette: [
+      project.palette?.primary ?? "#090d14",
+      project.palette?.secondary ?? "#f5f7fb",
+      accent,
+    ],
+    mockup_type: mockupType,
+    textures,
+    metrics: (project.services?.length ? project.services : project.tags ?? []).slice(0, 3),
+    deliverables,
+    process: buildProcess(project, description),
+    mockupType,
+    model: mockupType,
+    texture: textures.mockup,
+    heroTexture: textures.hero,
+    gallery: textures.gallery,
+  };
+}
+
 const siteNavigationDataset = siteNavigationRaw as SiteNavigation;
 const siteContent = contentRaw as SiteContent;
 
@@ -281,16 +557,16 @@ export const siteData = {
   },
   navigation: siteNavigationDataset.header,
 } as SiteDataset;
-const rawPortfolioProjects = portfolioProjectsDatasetRaw as PortfolioProjectDatasetRecord[];
+const rawPortfolioProjectsDataset = portfolioProjectsDatasetRaw as
+  | LegacyPortfolioProjectsDataset
+  | RawPortfolioProjectsDataset;
+const rawPortfolioProjects = Array.isArray(rawPortfolioProjectsDataset)
+  ? rawPortfolioProjectsDataset
+  : rawPortfolioProjectsDataset.projects;
 
-export const portfolioProjects: PortfolioProjectRecord[] = rawPortfolioProjects.map((project) => ({
-  ...project,
-  mockupType: project.mockup_type,
-  model: project.mockup_type,
-  texture: project.textures.mockup,
-  heroTexture: project.textures.hero,
-  gallery: project.textures.gallery,
-}));
+export const portfolioProjects: PortfolioProjectRecord[] = rawPortfolioProjects.map((project, index) =>
+  normalizePortfolioProject(project, index),
+);
 export const assetsManifest = assetsManifestRaw as AssetsManifest;
 export const designSystem = designSystemRaw as DesignSystem;
 export const siteNavigation = siteNavigationDataset;

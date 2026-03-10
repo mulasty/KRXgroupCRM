@@ -64,6 +64,7 @@ export function WarpTransition() {
       style={{ opacity: active ? 1 : 0 }}
     >
       <Canvas
+        style={{ pointerEvents: "none" }}
         orthographic
         dpr={[1, 1.5]}
         gl={{ alpha: true, antialias: true, powerPreference: "high-performance" }}
