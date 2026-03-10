@@ -88,7 +88,7 @@ export function ProjectNode({
     if (glowLight.current) {
       glowLight.current.intensity = MathUtils.damp(
         glowLight.current.intensity,
-        focused ? 14 * focusLightBoost : hovered ? 9 * focusLightBoost : 8,
+        focused ? 14 * focusLightBoost : hovered ? 7 * focusLightBoost : 0,
         4.5,
         delta,
       );
@@ -125,7 +125,7 @@ export function ProjectNode({
         position={[0, 0.4, 1.4]}
         distance={6}
         color={project.accent}
-        intensity={8}
+        intensity={0}
       />
 
     </group>

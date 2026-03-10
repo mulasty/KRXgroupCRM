@@ -35,6 +35,8 @@ export function SpatialEmitter({
   const forward = useMemo(() => new Vector3(), []);
   const worldPosition = useMemo(() => new Vector3(), []);
   const lastSlug = useRef<string | null>(null);
+  const raycastFrame = useRef(0);
+  const activeTarget = useRef<Object3D | null>(null);
 
   useEffect(() => {
     return () => {
@@ -50,19 +52,27 @@ export function SpatialEmitter({
     state.camera.getWorldDirection(forward);
     setListenerTransform(state.camera.position, forward, state.camera.up);
 
-    raycaster.setFromCamera(state.pointer, state.camera);
-    const intersections = raycaster.intersectObjects(state.scene.children, true);
+    raycastFrame.current += 1;
 
-    let target: Object3D | null = null;
+    if (raycastFrame.current % 3 === 0) {
+      raycaster.setFromCamera(state.pointer, state.camera);
+      const intersections = raycaster.intersectObjects(state.scene.children, true);
 
-    for (const hit of intersections) {
-      const candidate = findAudioTarget(hit.object);
+      let target: Object3D | null = null;
 
-      if (candidate) {
-        target = candidate;
-        break;
+      for (const hit of intersections) {
+        const candidate = findAudioTarget(hit.object);
+
+        if (candidate) {
+          target = candidate;
+          break;
+        }
       }
+
+      activeTarget.current = target;
     }
+
+    const target = activeTarget.current;
 
     if (!target) {
       lastSlug.current = null;

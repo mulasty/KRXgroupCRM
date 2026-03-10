@@ -109,30 +109,30 @@ export function getQualityProfile(
     case "high":
       return {
         tier,
-        canvasDpr: isPortfolio ? 1.85 : 1.7,
-        particleCount: 30000,
-        shaderIntensity: 1,
+        canvasDpr: isPortfolio ? 1.3 : 1.2,
+        particleCount: 15000,
+        shaderIntensity: 0.92,
         postfx: {
           bloomEnabled: true,
-          bloomScale: 1,
+          bloomScale: 0.82,
           dofEnabled: true,
-          grainScale: 1,
-          aberrationScale: 1,
-          multisampling: 4,
+          grainScale: 0.9,
+          aberrationScale: 0.88,
+          multisampling: 0,
         },
       };
     case "medium":
       return {
         tier,
-        canvasDpr: isPortfolio ? 1.4 : 1.3,
-        particleCount: 15000,
-        shaderIntensity: 0.84,
+        canvasDpr: isPortfolio ? 1.15 : 1.1,
+        particleCount: 9000,
+        shaderIntensity: 0.78,
         postfx: {
           bloomEnabled: true,
-          bloomScale: 0.72,
+          bloomScale: 0.48,
           dofEnabled: false,
-          grainScale: 0.8,
-          aberrationScale: 0.78,
+          grainScale: 0.72,
+          aberrationScale: 0.68,
           multisampling: 0,
         },
       };
@@ -141,14 +141,14 @@ export function getQualityProfile(
       return {
         tier: "low",
         canvasDpr: 1,
-        particleCount: 8000,
-        shaderIntensity: 0.68,
+        particleCount: 4500,
+        shaderIntensity: 0.6,
         postfx: {
           bloomEnabled: false,
           bloomScale: 0,
           dofEnabled: false,
-          grainScale: 0.6,
-          aberrationScale: 0.55,
+          grainScale: 0.52,
+          aberrationScale: 0.48,
           multisampling: 0,
         },
       };

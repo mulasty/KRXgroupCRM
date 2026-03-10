@@ -3,7 +3,6 @@
 import { startTransition, useEffect, useMemo, useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Environment, Float } from "@react-three/drei";
-import { EffectComposer, Bloom, Noise, Vignette } from "@react-three/postprocessing";
 import gsap from "gsap";
 import {
   AdditiveBlending,
@@ -20,6 +19,7 @@ import { useRouter } from "next/navigation";
 import "@/shaders/cosmic-noise";
 import { designSystem, visualEffects } from "@/lib/site-data";
 import { usePortfolioEngine } from "@/systems/PortfolioEngine";
+import { usePerformanceEngine } from "@/systems/performance/PerformanceEngine";
 import { CameraFlight } from "@/three/universe/CameraFlight";
 import { ConstellationLinks } from "@/three/universe/ConstellationLinks";
 import { GalaxyParticles } from "@/three/universe/GalaxyParticles";
@@ -42,9 +42,14 @@ function seededUnit(seed: number) {
 }
 
 function NebulaField() {
+  const performance = usePerformanceEngine();
   const group = useRef<Group>(null);
   const geometry = useMemo(() => {
-    const count = Math.min(15000, visualEffects.nebula.maxParticles);
+    const count = Math.min(
+      4500,
+      Math.max(1200, Math.floor(performance.quality.particleCount * 0.3)),
+      visualEffects.nebula.maxParticles,
+    );
     const positions = new Float32Array(count * 3);
     const colors = new Float32Array(count * 3);
     const palette = visualEffects.nebula.colors.map((entry) => new Color(entry));
@@ -70,7 +75,7 @@ function NebulaField() {
     buffer.setAttribute("position", new Float32BufferAttribute(positions, 3));
     buffer.setAttribute("color", new Float32BufferAttribute(colors, 3));
     return buffer;
-  }, []);
+  }, [performance.quality.particleCount]);
 
   useFrame((_, delta) => {
     if (!group.current) {
@@ -89,7 +94,7 @@ function NebulaField() {
           vertexColors
           size={visualEffects.nebula.pointSize}
           sizeAttenuation
-          opacity={visualEffects.nebula.opacity}
+          opacity={visualEffects.nebula.opacity * performance.quality.shaderIntensity}
           depthWrite={false}
           blending={AdditiveBlending}
         />
@@ -179,7 +184,7 @@ function ClusterBeacons({ layout }: { layout: GalaxyLayout }) {
               opacity={0.85}
             />
           </mesh>
-          <pointLight color={designSystem.colors.clusters[cluster]} intensity={8} distance={10} />
+          <pointLight color={designSystem.colors.clusters[cluster]} intensity={2.5} distance={6} />
         </group>
       ))}
     </group>
@@ -295,12 +300,6 @@ export function DesignUniverse() {
         ))}
       </group>
       <ConstellationLinks nodes={nodes} />
-
-      <EffectComposer multisampling={0}>
-        <Bloom luminanceThreshold={0.14} luminanceSmoothing={0.72} intensity={0.94} />
-        <Noise opacity={0.028} />
-        <Vignette eskil={false} offset={0.18} darkness={0.78} />
-      </EffectComposer>
     </>
   );
 }

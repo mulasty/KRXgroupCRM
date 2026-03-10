@@ -14,10 +14,9 @@ export function PortfolioCanvas() {
     <div className="pointer-events-auto fixed inset-0 -z-10" data-cursor="light">
       <ExperienceDirectorController />
       <Canvas
-        shadows
-        dpr={[1, 2]}
+        dpr={[1, 1.5]}
         camera={{ position: [0, 0.25, 6.8], fov: 34, near: 0.1, far: 100 }}
-        gl={{ antialias: true, alpha: true, powerPreference: "high-performance" }}
+        gl={{ antialias: false, alpha: true, powerPreference: "high-performance" }}
       >
         <Suspense fallback={null}>
           <PerformanceEngine preset="portfolio">

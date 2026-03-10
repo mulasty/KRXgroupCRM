@@ -70,7 +70,12 @@ export function PerformanceEngine({
   const setDpr = useThree((state) => state.setDpr);
   const device = useMemo(() => detectDeviceTier(gl), [gl]);
   const [fps, setFps] = useState<FPSSample>(DEFAULT_FPS);
-  const [qualityState, setQualityState] = useState(() => createInitialQualityState(device.tier));
+  const [qualityState, setQualityState] = useState(() => {
+    const initialTier =
+      preset === "portfolio" && device.tier === "high" ? "medium" : device.tier;
+
+    return createInitialQualityState(initialTier);
+  });
   const syncedQualityState = useMemo(
     () => syncQualityStateDevice(qualityState, device.tier),
     [device.tier, qualityState],

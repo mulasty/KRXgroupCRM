@@ -55,32 +55,37 @@ export function LightingDirector() {
   const interactiveMeshes = useRef<Mesh[]>([]);
   const rebuildCountdown = useRef(0);
   const hoveredRef = useRef<Object3D | null>(null);
+  const raycastFrame = useRef(0);
   const [hoveredObject, setHoveredObject] = useState<Object3D | null>(null);
 
   useFrame((state, delta) => {
     if (rebuildCountdown.current <= 0 || interactiveMeshes.current.length === 0) {
       interactiveMeshes.current = collectInteractiveMeshes(state.scene);
-      rebuildCountdown.current = 45;
+      rebuildCountdown.current = 120;
     } else {
       rebuildCountdown.current -= 1;
     }
 
-    raycaster.setFromCamera(state.pointer, state.camera);
-    const hits = raycaster.intersectObjects(interactiveMeshes.current, false);
-    let nextHovered: Object3D | null = null;
+    raycastFrame.current += 1;
 
-    for (const hit of hits) {
-      const root = findLightingRoot(hit.object);
+    if (raycastFrame.current % 2 === 0) {
+      raycaster.setFromCamera(state.pointer, state.camera);
+      const hits = raycaster.intersectObjects(interactiveMeshes.current, false);
+      let nextHovered: Object3D | null = null;
 
-      if (root) {
-        nextHovered = root;
-        break;
+      for (const hit of hits) {
+        const root = findLightingRoot(hit.object);
+
+        if (root) {
+          nextHovered = root;
+          break;
+        }
       }
-    }
 
-    if (nextHovered !== hoveredRef.current) {
-      hoveredRef.current = nextHovered;
-      setHoveredObject(nextHovered);
+      if (nextHovered !== hoveredRef.current) {
+        hoveredRef.current = nextHovered;
+        setHoveredObject(nextHovered);
+      }
     }
 
     if (ambientRef.current) {
