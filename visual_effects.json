@@ -10,10 +10,13 @@
   },
   "brandField": {
     "logoTexture": "/images/brand/krxproduce-logo.png",
-    "maxLogos": 4500,
-    "opacity": 0.16,
-    "baseScale": 0.52,
-    "brightnessThreshold": 0.94
+    "maxLogos": 3600,
+    "opacity": 0.11,
+    "baseScale": 0.46,
+    "brightnessThreshold": 0.935,
+    "driftStrength": 0.58,
+    "spinSpeed": 0.06,
+    "depthFade": 0.42
   },
   "noiseBackground": {
     "intensity": 0.14,

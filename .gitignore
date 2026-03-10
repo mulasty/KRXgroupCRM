@@ -24,3 +24,6 @@ Thumbs.db
 tsconfig.tsbuildinfo
 
 .vercel
+.playwright-cli/
+assets/
+/portfolio_projects.json

@@ -33,6 +33,9 @@ function seededUnit(seed: number) {
 const vertexShader = `
   uniform float uTime;
   uniform float uBaseScale;
+  uniform float uDriftStrength;
+  uniform float uSpinSpeed;
+  uniform float uDepthFade;
   attribute vec3 iOffset;
   attribute vec3 iColor;
   attribute float iScale;
@@ -48,21 +51,24 @@ const vertexShader = `
     vColor = iColor;
 
     vec3 center = iOffset;
-    float drift = (0.18 + iSeed * 0.34);
-    center.x += cos(uTime * (0.12 + iSeed * 0.14) + iPhase) * drift * 0.9;
-    center.y += sin(uTime * (0.15 + iSeed * 0.16) + iPhase * 1.17) * drift * 0.54;
-    center.z += cos(uTime * (0.09 + iSeed * 0.11) + iPhase * 0.72) * drift * 0.7;
+    float driftRadius = (0.12 + iSeed * 0.22) * uDriftStrength;
+    float orbitAngle = iPhase + uTime * (0.03 + iSeed * 0.03);
+    center.x += cos(orbitAngle) * driftRadius;
+    center.z += sin(orbitAngle) * driftRadius * 1.2;
+    center.y += sin(uTime * (0.08 + iSeed * 0.05) + iPhase * 1.11) * driftRadius * 0.42;
 
     vec4 mvCenter = modelViewMatrix * vec4(center, 1.0);
-    float spin = iRotation + uTime * (0.08 + iSeed * 0.06);
+    float spin = iRotation + uTime * (uSpinSpeed + iSeed * 0.04);
     mat2 rotation = mat2(cos(spin), -sin(spin), sin(spin), cos(spin));
     vec2 rotated = rotation * position.xy;
     float scale = uBaseScale * iScale;
+    float distanceFade = smoothstep(8.0, 48.0, -mvCenter.z);
+    float depthFade = mix(1.0, distanceFade, uDepthFade);
 
-    mvCenter.xy += rotated * scale;
+    mvCenter.xy += rotated * scale * mix(0.86, 1.12, distanceFade);
 
     gl_Position = projectionMatrix * mvCenter;
-    vAlpha = 0.18 + iSeed * 0.2;
+    vAlpha = (0.1 + iSeed * 0.14) * depthFade;
   }
 `;
 
@@ -173,6 +179,9 @@ export function LogoNebulaField() {
           uBaseScale: { value: visualEffects.brandField.baseScale },
           uOpacity: { value: visualEffects.brandField.opacity },
           uBrightnessThreshold: { value: visualEffects.brandField.brightnessThreshold },
+          uDriftStrength: { value: visualEffects.brandField.driftStrength },
+          uSpinSpeed: { value: visualEffects.brandField.spinSpeed },
+          uDepthFade: { value: visualEffects.brandField.depthFade },
           uMap: { value: configuredLogoTexture },
         },
         vertexShader,
@@ -208,8 +217,8 @@ export function LogoNebulaField() {
 
   useFrame((state, delta) => {
     if (groupRef.current) {
-      groupRef.current.rotation.y += delta * visualEffects.nebula.rotationSpeed;
-      groupRef.current.rotation.x += delta * visualEffects.nebula.rotationSpeed * 0.12;
+      groupRef.current.rotation.y += delta * visualEffects.nebula.rotationSpeed * 0.45;
+      groupRef.current.rotation.x += delta * visualEffects.nebula.rotationSpeed * 0.05;
     }
 
     const mesh = meshRef.current;
@@ -231,6 +240,18 @@ export function LogoNebulaField() {
       meshMaterial.uniforms.uBaseScale.value,
       visualEffects.brandField.baseScale * (0.82 + performance.quality.shaderIntensity * 0.24),
       3.8,
+      delta,
+    );
+    meshMaterial.uniforms.uDriftStrength.value = MathUtils.damp(
+      meshMaterial.uniforms.uDriftStrength.value,
+      visualEffects.brandField.driftStrength * (0.9 + performance.quality.shaderIntensity * 0.14),
+      3.2,
+      delta,
+    );
+    meshMaterial.uniforms.uSpinSpeed.value = MathUtils.damp(
+      meshMaterial.uniforms.uSpinSpeed.value,
+      visualEffects.brandField.spinSpeed,
+      3.2,
       delta,
     );
   });
