@@ -1,0 +1,20 @@
+{
+  "cursor_engine": {
+    "states": [
+      "default",
+      "hover",
+      "view_project",
+      "drag",
+      "zoom"
+    ],
+    "visual": {
+      "outer_ring": true,
+      "inner_dot": true,
+      "label": true
+    },
+    "animations": {
+      "hover_scale": 1.5,
+      "follow_lerp": 0.15
+    }
+  }
+}

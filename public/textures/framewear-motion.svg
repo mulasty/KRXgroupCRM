@@ -1,0 +1,6 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#130F0D"/>
+  <path d="M0 310C136 266 214 204 364 204C516 204 618 394 778 394C930 394 1024 170 1160 170C1328 170 1426 338 1600 326" stroke="#F4D5B7" stroke-width="4"/>
+  <path d="M0 408C130 366 216 304 364 304C522 304 626 496 782 496C934 496 1032 278 1162 278C1328 278 1430 438 1600 428" stroke="#FFF5ED" stroke-opacity="0.52" stroke-width="2"/>
+  <text x="120" y="986" fill="#FFF5ED" font-family="'Times New Roman', serif" font-size="112" letter-spacing="-4">Campaign motion board</text>
+</svg>

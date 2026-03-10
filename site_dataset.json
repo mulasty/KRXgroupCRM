@@ -1,0 +1,30 @@
+{
+  "designer": {
+    "name": "Elina Vale",
+    "title": "Graphic designer building identity systems that move like cinema.",
+    "location": "Berlin / Remote",
+    "intro": "A cross-disciplinary portfolio shaped around packaging, cultural campaigns, moving image, and tactile motion systems.",
+    "about": "The portfolio is structured as a design universe: a gallery of brand systems, launch visuals, and social campaigns staged as illuminated objects in orbit."
+  },
+  "navigation": [
+    { "label": "Projects", "href": "#featured" },
+    { "label": "Playground", "href": "/playground" }
+  ],
+  "playground": {
+    "eyebrow": "Playground",
+    "experiments": [
+      {
+        "title": "Generative Typography",
+        "caption": "Letterforms that warp into fluid ribbons as the pointer moves."
+      },
+      {
+        "title": "Chromatic Sandstorm",
+        "caption": "A lightweight particle field driven by curl-noise rhythms and scroll momentum."
+      },
+      {
+        "title": "Reactive Surface",
+        "caption": "A shader plane with spectral distortion mapped to cursor intensity."
+      }
+    ]
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "cursor_gravity": {
+    "enabled": true,
+    "strength": 0.03,
+    "radius": 4
+  },
+  "hover_focus": {
+    "scale": 1.2,
+    "light_boost": 2
+  },
+  "camera_parallax": {
+    "enabled": true,
+    "strength": 0.2
+  }
+}

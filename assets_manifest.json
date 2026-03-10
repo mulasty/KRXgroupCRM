@@ -1,0 +1,67 @@
+{
+  "models": {
+    "jar": {
+      "path": "/models/glass-jar.glb",
+      "dracoCompressed": false,
+      "label": {
+        "size": [1.12, 1.18],
+        "position": [0, 0.04, 0.93],
+        "rotation": [0, 0, 0]
+      }
+    },
+    "poster": {
+      "path": "/models/poster-frame.glb",
+      "dracoCompressed": false,
+      "label": {
+        "size": [1.46, 1.92],
+        "position": [0, 0, 0.08],
+        "rotation": [0, 0, 0]
+      }
+    },
+    "billboard": {
+      "path": "/models/billboard.glb",
+      "dracoCompressed": false,
+      "label": {
+        "size": [2.7, 1.5],
+        "position": [0, 0.55, 0.08],
+        "rotation": [0, 0, 0]
+      }
+    },
+    "box": {
+      "path": "/models/packaging-box.glb",
+      "dracoCompressed": false,
+      "label": {
+        "size": [1.3, 1.5],
+        "position": [0, 0.05, 0.76],
+        "rotation": [0, 0, 0]
+      }
+    },
+    "tshirt": {
+      "path": "/models/tshirt.glb",
+      "dracoCompressed": false,
+      "label": {
+        "size": [1.55, 1.68],
+        "position": [0, 0.05, 0.12],
+        "rotation": [0, 0, 0]
+      }
+    },
+    "laptop": {
+      "path": "/models/laptop.glb",
+      "dracoCompressed": false,
+      "label": {
+        "size": [2.36, 1.48],
+        "position": [0, 0.84, -0.06],
+        "rotation": [-1.13, 0, 0]
+      }
+    },
+    "phone": {
+      "path": "/models/phone.glb",
+      "dracoCompressed": false,
+      "label": {
+        "size": [0.82, 1.56],
+        "position": [0, 0, 0.08],
+        "rotation": [0, 0, 0]
+      }
+    }
+  }
+}

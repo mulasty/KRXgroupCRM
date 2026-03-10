@@ -1,0 +1,23 @@
+{
+  "galaxy": {
+    "radius": 40,
+    "depth": 25,
+    "spiralTurns": 1.6,
+    "clusterSpread": 7.5,
+    "parallaxStrength": 0.35
+  },
+  "clusterOrder": ["branding", "packaging", "video", "social media"],
+  "scrollStages": [
+    { "label": "hero", "start": 0, "end": 0.2 },
+    { "label": "enterGalaxy", "start": 0.2, "end": 0.4 },
+    { "label": "explore", "start": 0.4, "end": 0.7 },
+    { "label": "caseStudyTransition", "start": 0.7, "end": 0.85 },
+    { "label": "playgroundAbout", "start": 0.85, "end": 1 }
+  ],
+  "camera": {
+    "heroPosition": [0, 2.8, 18],
+    "focusOffset": [0, 1.15, 4.8],
+    "lookAhead": 0.035,
+    "damping": 0.075
+  }
+}

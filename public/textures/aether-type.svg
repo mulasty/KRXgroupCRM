@@ -1,0 +1,9 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#110B08"/>
+  <circle cx="886" cy="444" r="240" fill="#FFB86E" fill-opacity="0.14"/>
+  <text x="118" y="1040" fill="#F4E8DA" font-family="'Times New Roman', serif" font-size="176" letter-spacing="-10">Type</text>
+  <text x="118" y="1170" fill="#F4E8DA" font-family="'Times New Roman', serif" font-size="176" letter-spacing="-10">Drift</text>
+  <text x="126" y="1298" fill="#D7C1AD" font-family="'Arial', sans-serif" font-size="24" letter-spacing="8">POSTER SYSTEM / CULTURAL PROGRAM / GENERATIVE SERIES</text>
+  <path d="M126 540C282 490 332 468 456 468C592 468 650 690 786 690C886 690 956 612 1080 600" stroke="#FFB86E" stroke-width="2.5"/>
+  <path d="M126 590C270 538 322 522 450 522C600 522 646 754 790 754C900 754 962 680 1080 666" stroke="#F4E8DA" stroke-opacity="0.45" stroke-width="1.5"/>
+</svg>

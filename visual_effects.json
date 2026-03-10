@@ -1,0 +1,23 @@
+{
+  "nebula": {
+    "maxParticles": 15000,
+    "fieldRadius": 44,
+    "depth": 30,
+    "opacity": 0.24,
+    "rotationSpeed": 0.012,
+    "pointSize": 0.14,
+    "colors": ["#8CC8FF", "#B7F5E1", "#FFB86E", "#F4E8DA"]
+  },
+  "noiseBackground": {
+    "intensity": 0.14,
+    "speed": 0.08,
+    "scale": 1.2,
+    "palette": ["#06080C", "#0C1620", "#132636"]
+  },
+  "lightBeams": {
+    "count": 4,
+    "length": 24,
+    "opacity": 0.09,
+    "colors": ["#8CC8FF", "#DDE5F0", "#FFB86E"]
+  }
+}

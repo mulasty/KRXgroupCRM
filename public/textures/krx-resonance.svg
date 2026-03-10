@@ -1,0 +1,21 @@
+<svg width="1600" height="2000" viewBox="0 0 1600 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="2000" fill="#070A0F"/>
+  <rect x="72" y="72" width="1456" height="1856" rx="48" stroke="rgba(255,255,255,0.12)"/>
+  <circle cx="1130" cy="460" r="430" fill="url(#paint0_radial)"/>
+  <circle cx="1110" cy="470" r="246" stroke="#9AD3FF" stroke-opacity="0.7" stroke-width="1.5"/>
+  <circle cx="1110" cy="470" r="312" stroke="#9AD3FF" stroke-opacity="0.35" stroke-width="1.5"/>
+  <path d="M170 1450H1430" stroke="#CBE6FF" stroke-opacity="0.22"/>
+  <path d="M170 1490H1430" stroke="#CBE6FF" stroke-opacity="0.12"/>
+  <path d="M190 420C420 360 630 520 840 500C1020 482 1170 328 1370 366" stroke="#8CC8FF" stroke-width="3"/>
+  <path d="M190 515C400 455 620 610 840 594C1040 580 1195 438 1390 470" stroke="#8CC8FF" stroke-opacity="0.55" stroke-width="2"/>
+  <text x="160" y="1210" fill="#EAF4FF" font-family="'Times New Roman', serif" font-size="212" letter-spacing="-12">KRX</text>
+  <text x="174" y="1365" fill="#EAF4FF" fill-opacity="0.86" font-family="'Arial', sans-serif" font-size="58" letter-spacing="18">RESONANCE</text>
+  <text x="180" y="1535" fill="#9FB0C3" font-family="'Arial', sans-serif" font-size="24" letter-spacing="7">SPATIAL BRAND SYSTEM / 2026</text>
+  <text x="180" y="1610" fill="#7F94AA" font-family="'Arial', sans-serif" font-size="22" letter-spacing="5">A quiet identity restructured as an atmospheric signal field.</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1130 460) rotate(90) scale(430)">
+      <stop stop-color="#8CC8FF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#8CC8FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

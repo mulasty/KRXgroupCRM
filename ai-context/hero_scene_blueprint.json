@@ -1,0 +1,66 @@
+{
+  "camera": {
+    "fov": 45,
+    "position": [
+      0,
+      1.5,
+      12
+    ]
+  },
+  "lighting": {
+    "ambient": {
+      "intensity": 0.4
+    },
+    "key_light": {
+      "position": [
+        5,
+        8,
+        5
+      ]
+    },
+    "rim_light": {
+      "position": [
+        -6,
+        6,
+        -4
+      ]
+    }
+  },
+  "mockups": [
+    {
+      "type": "jar",
+      "position": [
+        -3,
+        0,
+        0
+      ]
+    },
+    {
+      "type": "poster",
+      "position": [
+        3,
+        0.5,
+        -2
+      ]
+    },
+    {
+      "type": "billboard",
+      "position": [
+        0,
+        -1,
+        -4
+      ]
+    },
+    {
+      "type": "box",
+      "position": [
+        2.5,
+        -0.3,
+        2
+      ]
+    }
+  ],
+  "particles": {
+    "count": 12000
+  }
+}

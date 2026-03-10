@@ -1,0 +1,15 @@
+<svg width="1600" height="2000" viewBox="0 0 1600 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="2000" fill="#071019"/>
+  <rect x="96" y="96" width="1408" height="1808" rx="34" fill="#0B1620" stroke="rgba(255,255,255,0.1)"/>
+  <circle cx="1180" cy="424" r="320" fill="url(#paint0_radial)"/>
+  <text x="160" y="1112" fill="#EEF7FF" font-family="'Times New Roman', serif" font-size="212" letter-spacing="-12">Lucid</text>
+  <text x="172" y="1262" fill="#A5D9FF" font-family="'Arial', sans-serif" font-size="58" letter-spacing="16">LAUNCH</text>
+  <path d="M180 1424H1420" stroke="#EEF7FF" stroke-opacity="0.16"/>
+  <path d="M184 1508C336 1448 452 1424 596 1424C748 1424 812 1608 964 1608C1110 1608 1216 1478 1418 1478" stroke="#A5D9FF" stroke-width="4"/>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1180 424) rotate(90) scale(320)">
+      <stop stop-color="#A5D9FF" stop-opacity="0.4"/>
+      <stop offset="1" stop-color="#A5D9FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

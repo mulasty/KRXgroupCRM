@@ -1,0 +1,16 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#091018"/>
+  <g opacity="0.12">
+    <path d="M160 0V1200" stroke="#EAF0FF"/>
+    <path d="M480 0V1200" stroke="#EAF0FF"/>
+    <path d="M800 0V1200" stroke="#EAF0FF"/>
+    <path d="M1120 0V1200" stroke="#EAF0FF"/>
+    <path d="M1440 0V1200" stroke="#EAF0FF"/>
+    <path d="M0 220H1600" stroke="#EAF0FF"/>
+    <path d="M0 520H1600" stroke="#EAF0FF"/>
+    <path d="M0 820H1600" stroke="#EAF0FF"/>
+  </g>
+  <rect x="1064" y="174" width="240" height="240" rx="22" stroke="#B3C7FF" stroke-width="2"/>
+  <text x="126" y="950" fill="#EAF0FF" font-family="'Times New Roman', serif" font-size="118" letter-spacing="-4">Launch geometry</text>
+  <text x="132" y="1038" fill="#B7C9E9" font-family="'Arial', sans-serif" font-size="28" letter-spacing="9">RIGID BOX / SIGNAGE / DIGITAL KEY VISUALS</text>
+</svg>

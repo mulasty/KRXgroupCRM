@@ -1,0 +1,16 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#080B12"/>
+  <g opacity="0.18">
+    <path d="M120 240H1480" stroke="#D7E8F7"/>
+    <path d="M120 360H1480" stroke="#D7E8F7"/>
+    <path d="M120 480H1480" stroke="#D7E8F7"/>
+    <path d="M120 600H1480" stroke="#D7E8F7"/>
+    <path d="M120 720H1480" stroke="#D7E8F7"/>
+    <path d="M120 840H1480" stroke="#D7E8F7"/>
+  </g>
+  <path d="M140 640C250 640 280 350 380 350C480 350 520 820 660 820C810 820 840 220 980 220C1120 220 1160 820 1270 820C1350 820 1410 520 1470 520" stroke="#8CC8FF" stroke-width="10" stroke-linecap="round"/>
+  <path d="M140 708C260 708 300 460 390 460C500 460 552 930 684 930C814 930 860 332 972 332C1102 332 1146 930 1252 930C1338 930 1400 650 1470 650" stroke="#CFE7FF" stroke-opacity="0.34" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="982" cy="220" r="14" fill="#DFF0FF"/>
+  <text x="126" y="154" fill="#EAF4FF" font-family="'Times New Roman', serif" font-size="96" letter-spacing="-4">Signal Sheet</text>
+  <text x="132" y="1048" fill="#B9CDE0" font-family="'Arial', sans-serif" font-size="28" letter-spacing="8">KRX / FREQUENCY / MOTION TOOLKIT</text>
+</svg>

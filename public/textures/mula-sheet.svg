@@ -1,0 +1,11 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#F0ECE2"/>
+  <rect x="90" y="90" width="1020" height="1420" rx="30" fill="#F8F4EC" stroke="#D7CBB8"/>
+  <rect x="190" y="220" width="320" height="440" rx="18" fill="#0B171B"/>
+  <rect x="690" y="220" width="320" height="440" rx="18" fill="#0B171B"/>
+  <rect x="190" y="828" width="820" height="452" rx="20" fill="#0B171B"/>
+  <path d="M220 1036C340 988 396 962 500 962C604 962 666 1110 776 1110C896 1110 934 990 982 948" stroke="#B7F5E1" stroke-width="3"/>
+  <text x="228" y="450" fill="#F5F2E8" font-family="'Times New Roman', serif" font-size="80" letter-spacing="-3">Mula</text>
+  <text x="728" y="450" fill="#F5F2E8" font-family="'Times New Roman', serif" font-size="80" letter-spacing="-3">Atlas</text>
+  <text x="190" y="1428" fill="#2C353B" font-family="'Arial', sans-serif" font-size="24" letter-spacing="7">LABEL FAMILY / PRESS SHEET / TONE STUDY</text>
+</svg>

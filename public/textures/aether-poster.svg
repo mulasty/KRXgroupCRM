@@ -1,0 +1,16 @@
+<svg width="1600" height="2000" viewBox="0 0 1600 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="2000" fill="#0D0906"/>
+  <rect x="82" y="82" width="1436" height="1836" stroke="#F4E8DA" stroke-opacity="0.16"/>
+  <circle cx="1170" cy="470" r="300" fill="url(#paint0_radial)"/>
+  <text x="160" y="820" fill="#F4E8DA" font-family="'Times New Roman', serif" font-size="246" letter-spacing="-14">Aether</text>
+  <text x="176" y="996" fill="#FFB86E" font-family="'Arial', sans-serif" font-size="72" letter-spacing="18">POSTERS</text>
+  <path d="M160 1176H1440" stroke="#F4E8DA" stroke-opacity="0.16"/>
+  <path d="M210 1260C364 1184 474 1164 598 1164C756 1164 804 1362 972 1362C1118 1362 1214 1248 1400 1248" stroke="#FFB86E" stroke-width="4"/>
+  <text x="176" y="1480" fill="#D4C3B1" font-family="'Arial', sans-serif" font-size="28" letter-spacing="8">GENERATIVE TYPOGRAPHY / CULTURAL GRAPHICS / 2026</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1170 470) rotate(90) scale(300)">
+      <stop stop-color="#FFB86E" stop-opacity="0.38"/>
+      <stop offset="1" stop-color="#FFB86E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

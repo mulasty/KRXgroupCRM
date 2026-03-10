@@ -1,0 +1,17 @@
+<svg width="1600" height="2000" viewBox="0 0 1600 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="2000" fill="#071114"/>
+  <rect x="84" y="84" width="1432" height="1832" rx="44" fill="#0B171B" stroke="rgba(255,255,255,0.1)"/>
+  <circle cx="1210" cy="490" r="330" fill="url(#paint0_radial)"/>
+  <path d="M208 520C340 460 520 472 620 380C710 298 680 162 890 154C1088 146 1126 350 1280 334" stroke="#B7F5E1" stroke-width="3"/>
+  <path d="M196 602C336 542 504 566 622 478C728 398 728 252 906 252C1076 252 1140 470 1288 456" stroke="#DDF6EC" stroke-opacity="0.66" stroke-width="2"/>
+  <path d="M216 690C364 630 514 666 648 590C770 520 798 406 934 406C1072 406 1144 612 1286 596" stroke="#7DDDC7" stroke-opacity="0.8" stroke-width="1.5"/>
+  <text x="176" y="1230" fill="#F5F2E8" font-family="'Times New Roman', serif" font-size="186" letter-spacing="-10">Mula</text>
+  <text x="184" y="1388" fill="#E9DCC6" font-family="'Arial', sans-serif" font-size="56" letter-spacing="16">ATLAS</text>
+  <text x="184" y="1492" fill="#A3B2AD" font-family="'Arial', sans-serif" font-size="24" letter-spacing="7">TRANSLUCENT PACKAGING / MINERAL TONES / 2025</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(1210 490) rotate(90) scale(330)">
+      <stop stop-color="#B7F5E1" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#B7F5E1" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

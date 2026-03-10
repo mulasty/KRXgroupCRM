@@ -1,0 +1,27 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#070A10"/>
+  <g opacity="0.1">
+    <path d="M120 0V1600" stroke="#D7E8F7"/>
+    <path d="M360 0V1600" stroke="#D7E8F7"/>
+    <path d="M600 0V1600" stroke="#D7E8F7"/>
+    <path d="M840 0V1600" stroke="#D7E8F7"/>
+    <path d="M1080 0V1600" stroke="#D7E8F7"/>
+    <path d="M0 220H1200" stroke="#D7E8F7"/>
+    <path d="M0 520H1200" stroke="#D7E8F7"/>
+    <path d="M0 820H1200" stroke="#D7E8F7"/>
+    <path d="M0 1120H1200" stroke="#D7E8F7"/>
+    <path d="M0 1420H1200" stroke="#D7E8F7"/>
+  </g>
+  <circle cx="900" cy="402" r="180" fill="url(#paint0_radial)"/>
+  <text x="110" y="400" fill="#ECF5FF" font-family="'Times New Roman', serif" font-size="158" letter-spacing="-8">KRX</text>
+  <text x="120" y="546" fill="#B9D0E6" font-family="'Arial', sans-serif" font-size="26" letter-spacing="8">GRID / DISTANCE / DISCIPLINE</text>
+  <path d="M120 860H1080" stroke="#8CC8FF" stroke-width="4"/>
+  <path d="M120 920H1080" stroke="#8CC8FF" stroke-opacity="0.42" stroke-width="1.5"/>
+  <text x="120" y="1020" fill="#7F94AA" font-family="'Arial', sans-serif" font-size="22" letter-spacing="5">A spatial system for launch decks, wayfinding, ambient motion, and event graphics.</text>
+  <defs>
+    <radialGradient id="paint0_radial" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(900 402) rotate(90) scale(180)">
+      <stop stop-color="#8CC8FF" stop-opacity="0.34"/>
+      <stop offset="1" stop-color="#8CC8FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

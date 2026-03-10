@@ -1,0 +1,8 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#120D09"/>
+  <rect x="110" y="136" width="400" height="928" rx="40" fill="#1A120C" stroke="#FFF4E7" stroke-opacity="0.12"/>
+  <rect x="562" y="136" width="400" height="928" rx="40" fill="#1A120C" stroke="#FFF4E7" stroke-opacity="0.12"/>
+  <rect x="1014" y="136" width="400" height="928" rx="40" fill="#1A120C" stroke="#FFF4E7" stroke-opacity="0.12"/>
+  <path d="M146 454C236 422 290 396 368 396C474 396 510 554 610 554C696 554 740 454 930 454" stroke="#FFD6A3" stroke-width="3"/>
+  <text x="132" y="1076" fill="#FFF4E7" font-family="'Arial', sans-serif" font-size="28" letter-spacing="8">MOBILE FEED SYSTEM / STORIES / CAROUSELS</text>
+</svg>

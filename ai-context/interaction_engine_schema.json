@@ -1,0 +1,20 @@
+{
+  "interaction_engine": {
+    "input_sources": [
+      "mouse_move",
+      "scroll",
+      "click",
+      "touch"
+    ],
+    "controllers": [
+      "cursor_controller",
+      "hover_detector",
+      "scroll_controller"
+    ],
+    "targets": [
+      "webgl_scene",
+      "ui_components",
+      "animations"
+    ]
+  }
+}

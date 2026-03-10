@@ -1,0 +1,8 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#081214"/>
+  <path d="M0 250C170 196 240 140 390 140C552 140 624 330 770 330C914 330 1020 120 1178 120C1324 120 1412 260 1600 250" stroke="#B7F5E1" stroke-width="4"/>
+  <path d="M0 342C172 286 250 236 396 236C548 236 636 424 770 424C914 424 1028 214 1180 214C1322 214 1424 352 1600 342" stroke="#DFF7EF" stroke-opacity="0.72" stroke-width="2"/>
+  <path d="M0 434C164 378 256 336 404 336C548 336 632 510 774 510C920 510 1038 316 1182 316C1328 316 1420 438 1600 434" stroke="#88E3D0" stroke-opacity="0.82" stroke-width="2"/>
+  <path d="M0 526C170 470 246 434 392 434C554 434 616 630 780 630C924 630 1020 406 1180 406C1334 406 1410 540 1600 526" stroke="#B7F5E1" stroke-opacity="0.4" stroke-width="2"/>
+  <text x="124" y="1002" fill="#F5F2E8" font-family="'Times New Roman', serif" font-size="110" letter-spacing="-4">Material contour study</text>
+</svg>

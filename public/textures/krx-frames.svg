@@ -1,0 +1,11 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#090D13"/>
+  <rect x="100" y="100" width="1000" height="1400" stroke="#CBE6FF" stroke-opacity="0.16"/>
+  <rect x="168" y="168" width="864" height="1264" stroke="#CBE6FF" stroke-opacity="0.08"/>
+  <circle cx="618" cy="700" r="280" stroke="#8CC8FF" stroke-width="1.5"/>
+  <circle cx="618" cy="700" r="190" stroke="#8CC8FF" stroke-opacity="0.4" stroke-width="1.5"/>
+  <path d="M232 350C410 298 520 422 620 422C760 422 824 272 970 316" stroke="#8CC8FF" stroke-width="3"/>
+  <path d="M280 1178H920" stroke="#F5FAFF" stroke-opacity="0.18"/>
+  <text x="214" y="1138" fill="#F5FAFF" font-family="'Times New Roman', serif" font-size="160" letter-spacing="-8">Orbit</text>
+  <text x="220" y="1250" fill="#B3C6D8" font-family="'Arial', sans-serif" font-size="28" letter-spacing="10">COMPOSITION STUDY</text>
+</svg>

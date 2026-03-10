@@ -1,0 +1,23 @@
+{
+  "layout": {
+    "type": "galaxy",
+    "radius": 40,
+    "depth": 25
+  },
+  "camera": {
+    "mode": "flight",
+    "speed": 0.6
+  },
+  "nodes": {
+    "types": [
+      "jar",
+      "poster",
+      "billboard",
+      "box",
+      "tshirt"
+    ]
+  },
+  "effects": {
+    "nebula_particles": 15000
+  }
+}

@@ -1,0 +1,13 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#0D0906"/>
+  <g opacity="0.16">
+    <path d="M0 180H1600" stroke="#F4E8DA"/>
+    <path d="M0 360H1600" stroke="#F4E8DA"/>
+    <path d="M0 540H1600" stroke="#F4E8DA"/>
+    <path d="M0 720H1600" stroke="#F4E8DA"/>
+    <path d="M0 900H1600" stroke="#F4E8DA"/>
+  </g>
+  <path d="M0 502C120 470 222 330 358 330C498 330 572 680 754 680C938 680 1012 230 1160 230C1312 230 1402 510 1600 510" stroke="#FFB86E" stroke-width="6"/>
+  <path d="M0 618C106 590 212 444 360 444C510 444 580 790 758 790C952 790 1020 346 1164 346C1316 346 1394 626 1600 618" stroke="#F4E8DA" stroke-opacity="0.46" stroke-width="2"/>
+  <text x="120" y="1052" fill="#F4E8DA" font-family="'Arial', sans-serif" font-size="30" letter-spacing="10">SCANLINE FIELD / REACTIVE COMPOSITION</text>
+</svg>

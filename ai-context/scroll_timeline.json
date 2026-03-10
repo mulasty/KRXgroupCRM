@@ -1,0 +1,28 @@
+{
+  "scroll_timeline": [
+    {
+      "range": "0-10%",
+      "event": "preloader_to_hero"
+    },
+    {
+      "range": "10-25%",
+      "event": "hero_particle_reveal"
+    },
+    {
+      "range": "25-40%",
+      "event": "camera_push_to_project"
+    },
+    {
+      "range": "40-70%",
+      "event": "design_universe_exploration"
+    },
+    {
+      "range": "70-85%",
+      "event": "case_study_transition"
+    },
+    {
+      "range": "85-100%",
+      "event": "about_and_contact"
+    }
+  ]
+}

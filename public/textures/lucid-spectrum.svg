@@ -1,0 +1,7 @@
+<svg width="1600" height="1200" viewBox="0 0 1600 1200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="1200" fill="#08111A"/>
+  <rect x="112" y="162" width="1376" height="876" rx="28" stroke="#DCEEFF" stroke-opacity="0.12"/>
+  <path d="M118 764C268 692 354 656 502 656C660 656 736 862 884 862C1036 862 1120 712 1480 712" stroke="#A5D9FF" stroke-width="5"/>
+  <path d="M118 844C266 776 360 744 500 744C660 744 726 950 890 950C1028 950 1132 812 1480 800" stroke="#EEF7FF" stroke-opacity="0.46" stroke-width="2"/>
+  <text x="140" y="336" fill="#EEF7FF" font-family="'Times New Roman', serif" font-size="108" letter-spacing="-4">Spectral timing study</text>
+</svg>

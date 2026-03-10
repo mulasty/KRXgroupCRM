@@ -1,0 +1,21 @@
+{
+  "colors": {
+    "ink": "#07090D",
+    "mist": "#DBE5EF",
+    "accent": "#8CC8FF",
+    "sand": "#E9DCC6",
+    "cyan": "#6ED3FF",
+    "clusters": {
+      "branding": "#8CC8FF",
+      "packaging": "#B7F5E1",
+      "video": "#FFB86E",
+      "social media": "#E9DCC6"
+    }
+  },
+  "motion": {
+    "hoverScale": 1.18,
+    "floatAmplitude": 0.7,
+    "rotationSpeed": 0.12,
+    "cursorGravity": 0.48
+  }
+}

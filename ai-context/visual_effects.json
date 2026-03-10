@@ -1,0 +1,6 @@
+{
+  "distortion_shader": true,
+  "noise_background": true,
+  "light_beams": true,
+  "glass_reflection": true
+}

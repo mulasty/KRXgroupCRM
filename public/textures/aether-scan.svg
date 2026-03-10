@@ -1,0 +1,14 @@
+<svg width="1200" height="1600" viewBox="0 0 1200 1600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="1600" fill="#0E0A07"/>
+  <g opacity="0.1">
+    <path d="M120 0V1600" stroke="#F4E8DA"/>
+    <path d="M360 0V1600" stroke="#F4E8DA"/>
+    <path d="M600 0V1600" stroke="#F4E8DA"/>
+    <path d="M840 0V1600" stroke="#F4E8DA"/>
+    <path d="M1080 0V1600" stroke="#F4E8DA"/>
+  </g>
+  <text x="110" y="430" fill="#F4E8DA" font-family="'Times New Roman', serif" font-size="200" letter-spacing="-10">Scan</text>
+  <text x="110" y="586" fill="#FFB86E" font-family="'Arial', sans-serif" font-size="60" letter-spacing="14">MOTION STUDY</text>
+  <path d="M120 800H1080" stroke="#F4E8DA" stroke-opacity="0.14"/>
+  <path d="M120 940C266 856 316 826 426 826C562 826 622 1044 760 1044C870 1044 962 932 1080 894" stroke="#FFB86E" stroke-width="3"/>
+</svg>

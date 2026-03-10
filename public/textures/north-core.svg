@@ -1,0 +1,10 @@
+<svg width="1600" height="2000" viewBox="0 0 1600 2000" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1600" height="2000" fill="#091018"/>
+  <rect x="84" y="84" width="1432" height="1832" rx="42" fill="#0B131D" stroke="rgba(255,255,255,0.1)"/>
+  <rect x="1048" y="212" width="278" height="278" rx="22" stroke="#B3C7FF" stroke-width="2"/>
+  <rect x="1102" y="266" width="170" height="170" rx="12" fill="#B3C7FF" fill-opacity="0.12"/>
+  <text x="162" y="1148" fill="#EAF0FF" font-family="'Times New Roman', serif" font-size="210" letter-spacing="-12">North</text>
+  <text x="170" y="1298" fill="#B3C7FF" font-family="'Arial', sans-serif" font-size="64" letter-spacing="15">CORE</text>
+  <path d="M172 1468H1428" stroke="#EAF0FF" stroke-opacity="0.16"/>
+  <path d="M196 1562C360 1488 450 1452 592 1452C736 1452 804 1640 952 1640C1088 1640 1174 1512 1418 1512" stroke="#B3C7FF" stroke-width="4"/>
+</svg>

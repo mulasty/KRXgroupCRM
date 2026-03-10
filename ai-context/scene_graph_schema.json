@@ -1,0 +1,57 @@
+{
+  "scene_graph": {
+    "camera": {
+      "type": "perspective",
+      "controller": "CameraRig",
+      "inputs": [
+        "scroll",
+        "cursor"
+      ]
+    },
+    "lights": [
+      {
+        "type": "ambient"
+      },
+      {
+        "type": "spot",
+        "role": "key_light"
+      },
+      {
+        "type": "directional",
+        "role": "rim_light"
+      },
+      {
+        "type": "point",
+        "role": "cursor_light"
+      }
+    ],
+    "layers": {
+      "environment": [
+        "hdri",
+        "fog",
+        "nebula_background"
+      ],
+      "particles": [
+        "hero_particles",
+        "nebula_particles",
+        "dust_particles"
+      ],
+      "mockups": [
+        "jar",
+        "poster",
+        "billboard",
+        "box",
+        "tshirt"
+      ],
+      "interaction": [
+        "cursor_gravity",
+        "hover_focus"
+      ],
+      "ui": [
+        "labels",
+        "cursor_ui",
+        "navigation"
+      ]
+    }
+  }
+}

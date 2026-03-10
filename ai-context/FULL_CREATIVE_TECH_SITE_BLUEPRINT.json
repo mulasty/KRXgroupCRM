@@ -1,0 +1,110 @@
+{
+  "project": {
+    "name": "KRX Produce Creative Portfolio",
+    "type": "interactive_webgl_portfolio",
+    "experience_style": "creative-tech immersive"
+  },
+
+  "tech_stack": {
+    "framework": "Next.js",
+    "language": "TypeScript",
+    "3d_engine": "Three.js",
+    "renderer": "React Three Fiber",
+    "animations": "GSAP",
+    "scroll_engine": "Lenis"
+  },
+
+  "site_structure": [
+    "Preloader",
+    "HeroScene",
+    "DesignUniverse",
+    "PortfolioGallery",
+    "CaseStudy",
+    "Playground",
+    "About",
+    "Contact"
+  ],
+
+  "hero_scene": {
+    "features": [
+      "particle_reveal",
+      "floating_mockups",
+      "cursor_light",
+      "camera_parallax"
+    ],
+
+    "mockups": [
+      "jar",
+      "poster",
+      "billboard",
+      "box"
+    ],
+
+    "particles": {
+      "count": 12000,
+      "type": "gpu_particles"
+    }
+  },
+
+  "design_universe": {
+    "layout": "galaxy",
+    "radius": 40,
+    "depth": 25,
+
+    "nodes": [
+      "jar_mockup",
+      "poster_mockup",
+      "billboard_mockup",
+      "box_mockup",
+      "tshirt_mockup"
+    ],
+
+    "effects": [
+      "nebula_particles",
+      "floating_objects",
+      "orbit_motion"
+    ]
+  },
+
+  "interaction_system": {
+    "cursor_engine": true,
+    "cursor_gravity": true,
+    "hover_focus": true,
+    "camera_parallax": true
+  },
+
+  "scroll_timeline": [
+    {
+      "range": "0-10%",
+      "event": "preloader"
+    },
+    {
+      "range": "10-25%",
+      "event": "hero_particle_reveal"
+    },
+    {
+      "range": "25-40%",
+      "event": "camera_push"
+    },
+    {
+      "range": "40-70%",
+      "event": "design_universe"
+    },
+    {
+      "range": "70-85%",
+      "event": "case_study"
+    },
+    {
+      "range": "85-100%",
+      "event": "about_contact"
+    }
+  ],
+
+  "performance_rules": {
+    "target_fps": 60,
+    "max_particles": 15000,
+    "max_texture_size": 2048,
+    "mesh_compression": "draco",
+    "texture_format": "ktx2"
+  }
+}
