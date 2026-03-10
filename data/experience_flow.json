@@ -1,0 +1,159 @@
+{
+  "scrollTrigger": {
+    "trigger": "#portfolio-scroll",
+    "start": "top top",
+    "end": "bottom bottom",
+    "scrub": 1
+  },
+  "selectionPriority": {
+    "enabled": true,
+    "selectionStage": "focus",
+    "caseStudyThreshold": 0.8
+  },
+  "stages": [
+    {
+      "key": "intro",
+      "range": {
+        "start": 0,
+        "end": 0.2
+      },
+      "camera": {
+        "dolly": 1.1,
+        "lift": 0.3,
+        "fov": 35.5,
+        "targetDistance": 13.5
+      },
+      "lighting": {
+        "ambient": 0.08,
+        "wash": 4,
+        "focus": 0
+      },
+      "postfx": {
+        "bloomBoost": 0.9,
+        "grainOpacity": 0.022,
+        "vignetteDarkness": 0.72,
+        "aberrationScale": 0.9,
+        "bokehScale": 1.6,
+        "targetDistance": 13.5
+      },
+      "particles": {
+        "activity": 0.72,
+        "opacity": 0.2,
+        "size": 0.86,
+        "drift": 0.82,
+        "spin": 0.76
+      }
+    },
+    {
+      "key": "explore",
+      "range": {
+        "start": 0.2,
+        "end": 0.6
+      },
+      "camera": {
+        "dolly": 0.2,
+        "lift": 0.08,
+        "fov": 36.4,
+        "targetDistance": 11.5
+      },
+      "lighting": {
+        "ambient": 0.12,
+        "wash": 8.5,
+        "focus": 1.8
+      },
+      "postfx": {
+        "bloomBoost": 1.1,
+        "grainOpacity": 0.028,
+        "vignetteDarkness": 0.76,
+        "aberrationScale": 1,
+        "bokehScale": 2,
+        "targetDistance": 11.5
+      },
+      "particles": {
+        "activity": 1.14,
+        "opacity": 0.38,
+        "size": 1.08,
+        "drift": 1.18,
+        "spin": 1.12
+      }
+    },
+    {
+      "key": "focus",
+      "range": {
+        "start": 0.6,
+        "end": 0.8
+      },
+      "camera": {
+        "dolly": -1.15,
+        "lift": 0.26,
+        "fov": 31.8,
+        "targetDistance": 9.4,
+        "selected": {
+          "dolly": -1.55,
+          "fov": 30.5,
+          "targetDistance": 8.2
+        }
+      },
+      "lighting": {
+        "ambient": 0.1,
+        "wash": 6.5,
+        "focus": 8,
+        "selected": {
+          "focus": 15
+        }
+      },
+      "postfx": {
+        "bloomBoost": 1.18,
+        "grainOpacity": 0.024,
+        "vignetteDarkness": 0.82,
+        "aberrationScale": 0.88,
+        "bokehScale": 2.2,
+        "targetDistance": 9.4,
+        "selected": {
+          "bokehScale": 2.5,
+          "targetDistance": 8.2
+        }
+      },
+      "particles": {
+        "activity": 0.96,
+        "opacity": 0.3,
+        "size": 0.98,
+        "drift": 0.96,
+        "spin": 0.92
+      }
+    },
+    {
+      "key": "case-study",
+      "range": {
+        "start": 0.8,
+        "end": 1
+      },
+      "camera": {
+        "dolly": -2.1,
+        "lift": 0.44,
+        "fov": 28.6,
+        "targetDistance": 6.6
+      },
+      "lighting": {
+        "ambient": 0.06,
+        "wash": 4.8,
+        "focus": 9
+      },
+      "postfx": {
+        "bloomBoost": 0.96,
+        "grainOpacity": 0.022,
+        "vignetteDarkness": 0.88,
+        "aberrationScale": 0.72,
+        "bokehScale": 2.35,
+        "targetDistance": 6.6
+      },
+      "particles": {
+        "activity": 0.68,
+        "opacity": 0.16,
+        "size": 0.82,
+        "drift": 0.7,
+        "spin": 0.74
+      }
+    }
+  ]
+}

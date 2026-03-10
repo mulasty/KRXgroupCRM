@@ -1,0 +1,47 @@
+{
+  "home": {
+    "hero": {
+      "eyebrow": "Immersive portfolio",
+      "title": [
+        "Visual identities",
+        "staged as",
+        "digital matter."
+      ],
+      "description": "The work unfolds across WebGL environments, editorial layouts, and mockups that materialize through particle-based assembly."
+    },
+    "profile": {
+      "eyebrow": "Profile",
+      "body": "The site behaves like an installation: slow camera travel, cinematic section changes, and premium material studies rather than flat project tiles.",
+      "primaryCta": {
+        "label": "Enter projects",
+        "href": "#featured"
+      },
+      "secondaryCta": {
+        "label": "Explore playground",
+        "href": "/playground"
+      }
+    },
+    "featured": {
+      "description": "Scroll shifts the camera through a three-dimensional sequence of mockups. Each project lives at a different depth plane, while the matching artwork assembles from particles onto the object surface.",
+      "caseStudyCtaLabel": "Open case study"
+    },
+    "about": {
+      "eyebrow": "About",
+      "title": "Design systems with editorial calm and a universe-scale point of view.",
+      "statements": [
+        "Shader-led transitions replace hard cuts with atmospheric reveals.",
+        "Mockups are treated like lit objects in a gallery, not screenshots in cards.",
+        "Typography stays large, patient, and sharply composed across every section.",
+        "The Playground expands the portfolio into a laboratory for motion and code."
+      ],
+      "finalStage": {
+        "eyebrow": "Final stage",
+        "title": "Scroll exits the galaxy into the Playground and studio context.",
+        "cta": {
+          "label": "Open playground",
+          "href": "/playground"
+        }
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 "use client";
 
+import { performanceProfiles } from "@/lib/site-data";
 import type { DeviceTier } from "@/systems/performance/DeviceTierDetector";
 
 export type PerformancePreset = "portfolio" | "playground";
@@ -61,6 +62,13 @@ export function createInitialQualityState(deviceTier: DeviceTier): QualityState 
   };
 }
 
+export function getInitialQualityTier(
+  preset: PerformancePreset,
+  deviceTier: DeviceTier,
+): DeviceTier {
+  return clampTierToDevice(performanceProfiles[preset].initialTierCap, deviceTier);
+}
+
 export function updateQualityState(state: QualityState, averageFps: number): QualityState {
   let lowFpsStreak = state.lowFpsStreak;
   let highFpsStreak = state.highFpsStreak;
@@ -103,54 +111,11 @@ export function getQualityProfile(
   tier: DeviceTier,
   preset: PerformancePreset,
 ): QualityProfile {
-  const isPortfolio = preset === "portfolio";
+  const resolvedTier = tier === "high" || tier === "medium" ? tier : "low";
+  const profile = performanceProfiles[preset].tiers[resolvedTier];
 
-  switch (tier) {
-    case "high":
-      return {
-        tier,
-        canvasDpr: isPortfolio ? 1.3 : 1.2,
-        particleCount: 15000,
-        shaderIntensity: 0.92,
-        postfx: {
-          bloomEnabled: true,
-          bloomScale: 0.82,
-          dofEnabled: true,
-          grainScale: 0.9,
-          aberrationScale: 0.88,
-          multisampling: 0,
-        },
-      };
-    case "medium":
-      return {
-        tier,
-        canvasDpr: isPortfolio ? 1.15 : 1.1,
-        particleCount: 9000,
-        shaderIntensity: 0.78,
-        postfx: {
-          bloomEnabled: true,
-          bloomScale: 0.48,
-          dofEnabled: false,
-          grainScale: 0.72,
-          aberrationScale: 0.68,
-          multisampling: 0,
-        },
-      };
-    case "low":
-    default:
-      return {
-        tier: "low",
-        canvasDpr: 1,
-        particleCount: 4500,
-        shaderIntensity: 0.6,
-        postfx: {
-          bloomEnabled: false,
-          bloomScale: 0,
-          dofEnabled: false,
-          grainScale: 0.52,
-          aberrationScale: 0.48,
-          multisampling: 0,
-        },
-      };
-  }
+  return {
+    tier: resolvedTier,
+    ...profile,
+  };
 }

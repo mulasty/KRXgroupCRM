@@ -1,0 +1,30 @@
+{
+  "order": [
+    "branding",
+    "packaging",
+    "video",
+    "social media"
+  ],
+  "items": {
+    "branding": {
+      "label": "Branding",
+      "shortLabel": "Brand",
+      "description": "Identity systems, launch marks, and editorial visual languages."
+    },
+    "packaging": {
+      "label": "Packaging",
+      "shortLabel": "Pack",
+      "description": "Collectible containers, tactile surfaces, and shelf-ready design objects."
+    },
+    "video": {
+      "label": "Video",
+      "shortLabel": "Motion",
+      "description": "Motion posters, trailer frames, and cinematic broadcast systems."
+    },
+    "social media": {
+      "label": "Social Media",
+      "shortLabel": "Social",
+      "description": "Mobile-first storytelling systems for launches, drops, and campaigns."
+    }
+  }
+}

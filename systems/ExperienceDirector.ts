@@ -4,6 +4,8 @@ import { useEffect, useLayoutEffect, useSyncExternalStore } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
+import { experienceFlow } from "@/lib/site-data";
+
 gsap.registerPlugin(ScrollTrigger);
 
 export type ExperienceStage = "intro" | "explore" | "focus" | "case-study";
@@ -73,16 +75,24 @@ function equalFocusTarget(a: FocusTarget, b: FocusTarget) {
 }
 
 function stageFromState(progress: number, selectionActive: boolean): ExperienceStage {
-  if (progress >= 0.8) {
+  if (progress >= experienceFlow.selectionPriority.caseStudyThreshold) {
     return "case-study";
   }
 
-  if (selectionActive || progress >= 0.6) {
-    return "focus";
+  if (selectionActive && experienceFlow.selectionPriority.enabled) {
+    return experienceFlow.selectionPriority.selectionStage;
   }
 
-  if (progress >= 0.2) {
-    return "explore";
+  const matchedStage = experienceFlow.stages.find((stage) => {
+    if (stage.key === "case-study") {
+      return progress >= stage.range.start && progress <= stage.range.end;
+    }
+
+    return progress >= stage.range.start && progress < stage.range.end;
+  });
+
+  if (matchedStage) {
+    return matchedStage.key;
   }
 
   return "intro";
@@ -90,134 +100,31 @@ function stageFromState(progress: number, selectionActive: boolean): ExperienceS
 
 function computeExperienceState(state: ExperienceBaseState): ExperienceDirectorState {
   const stage = stageFromState(state.progress, state.selectionActive);
+  const stageConfig =
+    experienceFlow.stages.find((entry) => entry.key === stage) ?? experienceFlow.stages[0];
+  const selected =
+    state.selectionActive && stage === experienceFlow.selectionPriority.selectionStage;
+  const { selected: cameraSelected, ...cameraBase } = stageConfig.camera;
+  const { selected: lightingSelected, ...lightingBase } = stageConfig.lighting;
+  const { selected: postfxSelected, ...postfxBase } = stageConfig.postfx;
 
-  switch (stage) {
-    case "intro":
-      return {
-        ...state,
-        stage,
-        camera: {
-          dolly: 1.1,
-          lift: 0.3,
-          fov: 35.5,
-          targetDistance: 13.5,
-        },
-        lighting: {
-          ambient: 0.08,
-          wash: 4,
-          focus: 0,
-        },
-        postfx: {
-          bloomBoost: 0.9,
-          grainOpacity: 0.022,
-          vignetteDarkness: 0.72,
-          aberrationScale: 0.9,
-          bokehScale: 1.6,
-          targetDistance: 13.5,
-        },
-        particles: {
-          activity: 0.72,
-          opacity: 0.2,
-          size: 0.86,
-          drift: 0.82,
-          spin: 0.76,
-        },
-      };
-    case "explore":
-      return {
-        ...state,
-        stage,
-        camera: {
-          dolly: 0.2,
-          lift: 0.08,
-          fov: 36.4,
-          targetDistance: 11.5,
-        },
-        lighting: {
-          ambient: 0.12,
-          wash: 8.5,
-          focus: 1.8,
-        },
-        postfx: {
-          bloomBoost: 1.1,
-          grainOpacity: 0.028,
-          vignetteDarkness: 0.76,
-          aberrationScale: 1,
-          bokehScale: 2,
-          targetDistance: 11.5,
-        },
-        particles: {
-          activity: 1.14,
-          opacity: 0.38,
-          size: 1.08,
-          drift: 1.18,
-          spin: 1.12,
-        },
-      };
-    case "focus":
-      return {
-        ...state,
-        stage,
-        camera: {
-          dolly: state.selectionActive ? -1.55 : -1.15,
-          lift: 0.26,
-          fov: state.selectionActive ? 30.5 : 31.8,
-          targetDistance: state.selectionActive ? 8.2 : 9.4,
-        },
-        lighting: {
-          ambient: 0.1,
-          wash: 6.5,
-          focus: state.selectionActive ? 15 : 8,
-        },
-        postfx: {
-          bloomBoost: 1.18,
-          grainOpacity: 0.024,
-          vignetteDarkness: 0.82,
-          aberrationScale: 0.88,
-          bokehScale: state.selectionActive ? 2.5 : 2.2,
-          targetDistance: state.selectionActive ? 8.2 : 9.4,
-        },
-        particles: {
-          activity: 0.96,
-          opacity: 0.3,
-          size: 0.98,
-          drift: 0.96,
-          spin: 0.92,
-        },
-      };
-    case "case-study":
-    default:
-      return {
-        ...state,
-        stage,
-        camera: {
-          dolly: -2.1,
-          lift: 0.44,
-          fov: 28.6,
-          targetDistance: 6.6,
-        },
-        lighting: {
-          ambient: 0.06,
-          wash: 4.8,
-          focus: 9,
-        },
-        postfx: {
-          bloomBoost: 0.96,
-          grainOpacity: 0.022,
-          vignetteDarkness: 0.88,
-          aberrationScale: 0.72,
-          bokehScale: 2.35,
-          targetDistance: 6.6,
-        },
-        particles: {
-          activity: 0.68,
-          opacity: 0.16,
-          size: 0.82,
-          drift: 0.7,
-          spin: 0.74,
-        },
-      };
-  }
+  return {
+    ...state,
+    stage,
+    camera: {
+      ...cameraBase,
+      ...(selected ? cameraSelected ?? {} : {}),
+    },
+    lighting: {
+      ...lightingBase,
+      ...(selected ? lightingSelected ?? {} : {}),
+    },
+    postfx: {
+      ...postfxBase,
+      ...(selected ? postfxSelected ?? {} : {}),
+    },
+    particles: stageConfig.particles,
+  };
 }
 
 function emit() {
@@ -290,10 +197,10 @@ export function ExperienceDirectorController({
     }
 
     const trigger = ScrollTrigger.create({
-      trigger: "#portfolio-scroll",
-      start: "top top",
-      end: "bottom bottom",
-      scrub: 1,
+      trigger: experienceFlow.scrollTrigger.trigger,
+      start: experienceFlow.scrollTrigger.start,
+      end: experienceFlow.scrollTrigger.end,
+      scrub: experienceFlow.scrollTrigger.scrub,
       onUpdate: (self) => {
         setExperienceProgress(self.progress);
       },

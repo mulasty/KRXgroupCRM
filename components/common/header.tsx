@@ -4,7 +4,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { designer } from "@/lib/projects";
-import { siteData } from "@/lib/site-data";
+import { siteNavigation } from "@/lib/site-data";
 
 export function Header() {
   return (
@@ -25,7 +25,7 @@ export function Header() {
         </Link>
 
         <div className="pointer-events-auto flex items-center gap-6">
-          {siteData.navigation.map((item) =>
+          {siteNavigation.header.map((item) =>
             item.href.startsWith("/") ? (
               <Link
                 key={item.href}

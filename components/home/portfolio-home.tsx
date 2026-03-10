@@ -1,11 +1,13 @@
 "use client";
 
 import dynamic from "next/dynamic";
+import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
 import { MagneticButton } from "@/components/common/magnetic-button";
 import { designer, projects } from "@/lib/projects";
+import { content, services, uiComponents } from "@/lib/site-data";
 
 const PortfolioCanvas = dynamic(
   () => import("@/three/canvas/portfolio-canvas").then((mod) => mod.PortfolioCanvas),
@@ -18,6 +20,9 @@ const PortfolioCanvas = dynamic(
 );
 
 export function PortfolioHome() {
+  const homeUi = uiComponents.home;
+  const [heroLineA, heroLineB, heroLineC] = homeUi.hero.title;
+
   return (
     <main id="portfolio-scroll" className="relative overflow-x-clip">
       <PortfolioCanvas />
@@ -30,15 +35,14 @@ export function PortfolioHome() {
             transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
             className="max-w-5xl"
           >
-            <span className="eyebrow">Immersive portfolio</span>
+            <span className="eyebrow">{homeUi.hero.eyebrow}</span>
             <h1 className="display-line mt-8 text-white">
-              Visual identities
+              {heroLineA}
               <br />
-              staged as <span className="gradient-stroke">digital matter</span>.
+              {heroLineB} <span className="gradient-stroke">{heroLineC.replace(/\.$/, "")}</span>.
             </h1>
             <p className="body-copy mt-8 max-w-2xl text-base leading-8 text-white/[0.72] sm:text-lg">
-              {designer.title} The work unfolds across WebGL environments, editorial
-              layouts, and mockups that materialize through particle-based assembly.
+              {designer.title} {homeUi.hero.description}
             </p>
           </motion.div>
 
@@ -48,22 +52,24 @@ export function PortfolioHome() {
             transition={{ duration: 1.1, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
             className="glass-card max-w-lg justify-self-end p-8"
           >
-            <p className="text-sm uppercase tracking-[0.32em] text-white/[0.42]">Profile</p>
+            <p className="text-sm uppercase tracking-[0.32em] text-white/[0.42]">
+              {homeUi.profile.eyebrow}
+            </p>
             <p className="mt-6 text-2xl font-display leading-tight text-white">
               {designer.intro}
             </p>
             <p className="mt-6 text-sm leading-7 text-white/60">
-              The site behaves like an installation: slow camera travel, cinematic
-              section changes, and premium material studies rather than flat project
-              tiles.
+              {homeUi.profile.body}
             </p>
             <div className="mt-10 flex flex-wrap gap-4">
-              <MagneticButton href="#featured">Enter projects</MagneticButton>
+              <MagneticButton href={homeUi.profile.primaryCta.href}>
+                {homeUi.profile.primaryCta.label}
+              </MagneticButton>
               <MagneticButton
-                href="/playground"
+                href={homeUi.profile.secondaryCta.href}
                 className="border-white/10 bg-white/[0.03] text-white/[0.72]"
               >
-                Explore playground
+                {homeUi.profile.secondaryCta.label}
               </MagneticButton>
             </div>
           </motion.div>
@@ -134,12 +140,12 @@ export function PortfolioHome() {
                 {project.description}
               </p>
               <p className="mt-8 text-sm leading-8 text-white/[0.62]">
-                Scroll shifts the camera through a three-dimensional sequence of
-                mockups. Each project lives at a different depth plane, while the
-                matching artwork assembles from particles onto the object surface.
+                {homeUi.featured.description}
               </p>
               <div className="mt-10 flex items-center gap-6">
-                <MagneticButton href={`/projects/${project.slug}`}>Open case study</MagneticButton>
+                <MagneticButton href={`/projects/${project.slug}`}>
+                  {homeUi.featured.caseStudyCtaLabel}
+                </MagneticButton>
                 <span className="text-xs uppercase tracking-[0.26em] text-white/[0.35]">
                   {project.deliverables.join(" / ")}
                 </span>
@@ -150,23 +156,72 @@ export function PortfolioHome() {
       </section>
 
       <section className="section-shell relative z-10 pb-24">
+        <div className="mb-12 max-w-3xl">
+          <span className="eyebrow">{services.eyebrow}</span>
+          <h2 className="section-title mt-8 text-white">{services.title}</h2>
+          <p className="mt-6 max-w-2xl text-sm leading-8 text-white/[0.64]">
+            {services.description}
+          </p>
+        </div>
+
+        <div className="grid gap-6 lg:grid-cols-3">
+          {services.items.map((service, index) => (
+            <motion.article
+              key={service.slug}
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-10%" }}
+              transition={{ duration: 0.8, delay: index * 0.1 }}
+              className="glass-card overflow-hidden rounded-[30px] p-3"
+            >
+              <div className="relative aspect-square overflow-hidden rounded-[24px] border border-white/10">
+                <Image
+                  src={service.image}
+                  alt={service.title}
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 33vw"
+                  className="object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/65 via-black/15 to-transparent" />
+              </div>
+
+              <div className="p-5">
+                <p className="text-[10px] uppercase tracking-[0.34em] text-white/[0.35]">
+                  0{index + 1}
+                </p>
+                <h3 className="mt-6 text-3xl font-display leading-tight text-white">
+                  {service.title}
+                </h3>
+                <p className="mt-4 text-sm leading-8 text-white/[0.64]">{service.summary}</p>
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {service.deliverables.map((deliverable) => (
+                    <span
+                      key={deliverable}
+                      className="rounded-full border border-white/10 px-4 py-2 text-[10px] uppercase tracking-[0.26em] text-white/[0.5]"
+                    >
+                      {deliverable}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </motion.article>
+          ))}
+        </div>
+      </section>
+
+      <section className="section-shell relative z-10 pb-24">
         <div className="glass-card grid gap-8 overflow-hidden rounded-[40px] p-8 sm:p-10 lg:grid-cols-[0.7fr_0.7fr_0.6fr]">
           <div>
-            <span className="eyebrow">About</span>
+            <span className="eyebrow">{homeUi.about.eyebrow}</span>
             <h2 className="section-title mt-8 text-white">
-              Design systems with editorial calm and a universe-scale point of view.
+              {homeUi.about.title}
             </h2>
             <p className="mt-6 max-w-lg text-sm leading-8 text-white/[0.64]">
-              {designer.intro} {designer.about}
+              {designer.intro} {content.about.body}
             </p>
           </div>
           <div className="grid gap-6 sm:grid-cols-2">
-            {[
-              "Shader-led transitions replace hard cuts with atmospheric reveals.",
-              "Mockups are treated like lit objects in a gallery, not screenshots in cards.",
-              "Typography stays large, patient, and sharply composed across every section.",
-              "The Playground expands the portfolio into a laboratory for motion and code.",
-            ].map((statement) => (
+            {homeUi.about.statements.map((statement) => (
               <div key={statement} className="rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
                 <p className="text-sm leading-8 text-white/[0.68]">{statement}</p>
               </div>
@@ -175,13 +230,15 @@ export function PortfolioHome() {
           <div className="flex flex-col justify-between gap-8 rounded-[28px] border border-white/10 bg-white/[0.03] p-6">
             <div>
               <p className="text-[10px] uppercase tracking-[0.34em] text-white/[0.35]">
-                Final stage
+                {homeUi.about.finalStage.eyebrow}
               </p>
               <p className="mt-8 text-3xl font-display leading-tight text-white">
-                Scroll exits the galaxy into the Playground and studio context.
+                {homeUi.about.finalStage.title}
               </p>
             </div>
-            <MagneticButton href="/playground">Open playground</MagneticButton>
+            <MagneticButton href={homeUi.about.finalStage.cta.href}>
+              {homeUi.about.finalStage.cta.label}
+            </MagneticButton>
           </div>
         </div>
       </section>

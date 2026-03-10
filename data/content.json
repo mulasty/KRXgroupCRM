@@ -6,12 +6,17 @@
     "intro": "A cross-disciplinary portfolio shaped around packaging, cultural campaigns, moving image, and tactile motion systems.",
     "about": "The portfolio is structured as a design universe: a gallery of brand systems, launch visuals, and social campaigns staged as illuminated objects in orbit."
   },
-  "navigation": [
-    { "label": "Projects", "href": "#featured" },
-    { "label": "Playground", "href": "/playground" }
-  ],
+  "about": {
+    "title": "Design systems with editorial calm and a universe-scale point of view.",
+    "body": "The practice combines branding, packaging, launch visuals, and motion systems. The emphasis stays on premium pacing, spatial composition, and tactile digital surfaces rather than fast, disposable content."
+  },
   "playground": {
     "eyebrow": "Playground",
+    "title": [
+      "Experiments in type,",
+      "light, and motion noise."
+    ],
+    "description": "This page holds visual R&D that informs the portfolio language: shader surfaces, reactive particles, generative poster logic, and more speculative interface behaviors.",
     "experiments": [
       {
         "title": "Generative Typography",

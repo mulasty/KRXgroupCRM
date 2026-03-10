@@ -1,0 +1,12 @@
+{
+  "header": [
+    {
+      "label": "Projects",
+      "href": "#featured"
+    },
+    {
+      "label": "Playground",
+      "href": "/playground"
+    }
+  ]
+}

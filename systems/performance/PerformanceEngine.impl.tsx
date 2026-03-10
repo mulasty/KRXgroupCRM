@@ -19,6 +19,7 @@ import { useFPSMonitor, type FPSSample } from "@/systems/performance/FPSMonitor"
 import {
   createInitialQualityState,
   getQualityProfile,
+  getInitialQualityTier,
   syncQualityStateDevice,
   updateQualityState,
   type PerformancePreset,
@@ -71,8 +72,7 @@ export function PerformanceEngine({
   const device = useMemo(() => detectDeviceTier(gl), [gl]);
   const [fps, setFps] = useState<FPSSample>(DEFAULT_FPS);
   const [qualityState, setQualityState] = useState(() => {
-    const initialTier =
-      preset === "portfolio" && device.tier === "high" ? "medium" : device.tier;
+    const initialTier = getInitialQualityTier(preset, device.tier);
 
     return createInitialQualityState(initialTier);
   });

@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { motion } from "framer-motion";
 
 import { experiments } from "@/lib/projects";
+import { content } from "@/lib/site-data";
 
 const PlaygroundCanvas = dynamic(
   () => import("@/three/canvas/playground-canvas").then((mod) => mod.PlaygroundCanvas),
@@ -13,6 +14,8 @@ const PlaygroundCanvas = dynamic(
 );
 
 export function PlaygroundPage() {
+  const [playgroundLineA, playgroundLineB] = content.playground.title;
+
   return (
     <main className="relative min-h-screen overflow-x-clip pb-20 pt-24">
       <PlaygroundCanvas />
@@ -23,11 +26,11 @@ export function PlaygroundPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.95, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="eyebrow">Playground</p>
+          <p className="eyebrow">{content.playground.eyebrow}</p>
           <h1 className="display-line mt-8 text-white">
-            Experiments in type,
+            {playgroundLineA}
             <br />
-            light, and motion noise.
+            {playgroundLineB}
           </h1>
         </motion.div>
 
@@ -38,9 +41,7 @@ export function PlaygroundPage() {
           transition={{ duration: 0.95, delay: 0.12, ease: [0.22, 1, 0.36, 1] }}
         >
           <p className="text-sm leading-8 text-white/[0.66]">
-            This page holds visual R&amp;D that informs the portfolio language: shader
-            surfaces, reactive particles, generative poster logic, and more speculative
-            interface behaviors.
+            {content.playground.description}
           </p>
         </motion.div>
       </section>

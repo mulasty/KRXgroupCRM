@@ -1,0 +1,28 @@
+{
+  "eyebrow": "Services",
+  "title": "Selected areas of practice shaped for launch-ready brand worlds.",
+  "description": "The studio work spans identity direction, packaging systems, and motion-led campaign visuals. Each stream is treated as one connected visual language rather than isolated deliverables.",
+  "items": [
+    {
+      "slug": "identity-systems",
+      "title": "Identity Systems",
+      "summary": "Brand identities shaped for editorial, digital, and spatial rollout.",
+      "image": "/images/services/identity-systems.jpg",
+      "deliverables": ["Brand worlds", "Launch assets", "Art direction"]
+    },
+    {
+      "slug": "packaging-direction",
+      "title": "Packaging Direction",
+      "summary": "Premium packaging concepts with tactile material thinking and launch-ready visuals.",
+      "image": "/images/services/packaging-direction.jpg",
+      "deliverables": ["Label systems", "Packaging mockups", "Retail visuals"]
+    },
+    {
+      "slug": "motion-launches",
+      "title": "Motion Launches",
+      "summary": "Campaign visuals, social motion, and cinematic reveal systems for product and culture.",
+      "image": "/images/services/motion-launches.jpg",
+      "deliverables": ["Teaser loops", "Social motion", "Campaign frames"]
+    }
+  ]
+}

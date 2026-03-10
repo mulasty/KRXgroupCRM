@@ -1,0 +1,90 @@
+{
+  "portfolio": {
+    "initialTierCap": "medium",
+    "tiers": {
+      "high": {
+        "canvasDpr": 1.3,
+        "particleCount": 15000,
+        "shaderIntensity": 0.92,
+        "postfx": {
+          "bloomEnabled": true,
+          "bloomScale": 0.82,
+          "dofEnabled": true,
+          "grainScale": 0.9,
+          "aberrationScale": 0.88,
+          "multisampling": 0
+        }
+      },
+      "medium": {
+        "canvasDpr": 1.15,
+        "particleCount": 9000,
+        "shaderIntensity": 0.78,
+        "postfx": {
+          "bloomEnabled": true,
+          "bloomScale": 0.48,
+          "dofEnabled": false,
+          "grainScale": 0.72,
+          "aberrationScale": 0.68,
+          "multisampling": 0
+        }
+      },
+      "low": {
+        "canvasDpr": 1,
+        "particleCount": 4500,
+        "shaderIntensity": 0.6,
+        "postfx": {
+          "bloomEnabled": false,
+          "bloomScale": 0,
+          "dofEnabled": false,
+          "grainScale": 0.52,
+          "aberrationScale": 0.48,
+          "multisampling": 0
+        }
+      }
+    }
+  },
+  "playground": {
+    "initialTierCap": "high",
+    "tiers": {
+      "high": {
+        "canvasDpr": 1.2,
+        "particleCount": 15000,
+        "shaderIntensity": 0.92,
+        "postfx": {
+          "bloomEnabled": true,
+          "bloomScale": 0.82,
+          "dofEnabled": true,
+          "grainScale": 0.9,
+          "aberrationScale": 0.88,
+          "multisampling": 0
+        }
+      },
+      "medium": {
+        "canvasDpr": 1.1,
+        "particleCount": 9000,
+        "shaderIntensity": 0.78,
+        "postfx": {
+          "bloomEnabled": true,
+          "bloomScale": 0.48,
+          "dofEnabled": false,
+          "grainScale": 0.72,
+          "aberrationScale": 0.68,
+          "multisampling": 0
+        }
+      },
+      "low": {
+        "canvasDpr": 1,
+        "particleCount": 4500,
+        "shaderIntensity": 0.6,
+        "postfx": {
+          "bloomEnabled": false,
+          "bloomScale": 0,
+          "dofEnabled": false,
+          "grainScale": 0.52,
+          "aberrationScale": 0.48,
+          "multisampling": 0
+        }
+      }
+    }
+  }
+}
