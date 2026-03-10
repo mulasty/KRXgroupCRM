@@ -5,8 +5,8 @@ import { useFrame } from "@react-three/fiber";
 import { useTexture } from "@react-three/drei";
 import {
   Color,
-  DoubleSide,
   Float32BufferAttribute,
+  FrontSide,
   Group,
   InstancedBufferAttribute,
   InstancedBufferGeometry,
@@ -22,7 +22,7 @@ import {
 import { visualEffects } from "@/lib/site-data";
 import { usePerformanceEngine } from "@/systems/performance/PerformanceEngine";
 
-const MAX_LOGO_COUNT = 4500;
+const MAX_LOGO_COUNT = 1800;
 const LOGO_ASPECT = 324 / 156;
 
 function seededUnit(seed: number) {
@@ -171,11 +171,12 @@ export function LogoNebulaField() {
   const material = useMemo(
     () =>
       new ShaderMaterial({
+        precision: "mediump",
         transparent: true,
         depthWrite: false,
         depthTest: false,
         blending: NormalBlending,
-        side: DoubleSide,
+        side: FrontSide,
         uniforms: {
           uTime: { value: 0 },
           uBaseScale: { value: visualEffects.brandField.baseScale },
@@ -195,7 +196,7 @@ export function LogoNebulaField() {
     () =>
       Math.min(
         visualEffects.brandField.maxLogos,
-        Math.max(1200, Math.floor(performance.quality.particleCount * 0.3)),
+        Math.max(600, Math.floor(performance.quality.particleCount * 0.06)),
       ),
     [performance.quality.particleCount],
   );
