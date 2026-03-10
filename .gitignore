@@ -20,3 +20,5 @@ coverage/
 Thumbs.db
 
 tsconfig.tsbuildinfo
+
+.vercel
